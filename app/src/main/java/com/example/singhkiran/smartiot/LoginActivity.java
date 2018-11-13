@@ -162,9 +162,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
-        //set the delay for timeout error = 4sec
+        //set the delay for timeout error = 2sec
         PostRequest.setRetryPolicy(new DefaultRetryPolicy(
-                400,
+                200,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         //send request
