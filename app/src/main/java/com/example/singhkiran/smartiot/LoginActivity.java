@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
         //change server url
         if (password_result.equals("sr")) {
             url = "http://" + username_result + "/api/users/login";
-            Toast.makeText(LoginActivity.this, "Server changed TO :> " + url, Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Server changed to => " + url, Toast.LENGTH_SHORT).show();
             Log.d("url", "login: " + url);
         }
 
@@ -116,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                         if (error instanceof TimeoutError) {
-                            Toast.makeText(LoginActivity.this, "Main Server is down!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Back-end Server is down!\nPlease contact the admin", Toast.LENGTH_SHORT).show();
                             Log.e("VolleyError TimeoutError: ", error.toString());
                         } else if (error instanceof NoConnectionError) {
                             Log.e("VolleyError NoConnectionError: ", error.toString());
