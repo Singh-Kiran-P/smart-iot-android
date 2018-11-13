@@ -7,7 +7,17 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.singhkiran.smartiot.R;
+import com.google.gson.JsonObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -35,6 +45,39 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
-        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();
+
+        //making the json object
+        JSONObject jsonLoginObject = new JSONObject();
+        try {
+            jsonLoginObject.put("username","x");
+            jsonLoginObject.put("password","x");
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
+
+        //make request to REST API
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        //create json request
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.POST, "localhost/api/users/login", jsonLoginObject,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Toast.makeText(LoginActivity.this, response.toString() , Toast.LENGTH_SHORT).show();
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        requestQueue.add(jsonObjectRequest);
+
+
     }
 }
