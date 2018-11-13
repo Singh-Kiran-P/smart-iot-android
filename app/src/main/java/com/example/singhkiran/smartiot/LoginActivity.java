@@ -3,11 +3,14 @@ package com.example.singhkiran.smartiot;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -50,46 +53,73 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
+        //get value's from inputbox login and password
+        final EditText username = findViewById(R.id.et_username);
+        final EditText password = findViewById(R.id.et_password);
 
-        //making the json object
-        JSONObject jsonLoginObject = new JSONObject();
-        try {
-            jsonLoginObject.put("name","eeeee");
-            jsonLoginObject.put("job","e");
+        final String username_result = username.getText().toString();
+        final String password_result = password.getText().toString();
 
-        }catch (JSONException e){
-            e.printStackTrace();
+
+        //check if Fields have values
+        if (username_result == "w") {
+            Toast.makeText(getApplicationContext(), "Username is Empty!", Toast.LENGTH_SHORT).show();
+
         }
+        if (password_result == "") {
+            Toast.makeText(getApplicationContext(), "Password is Empty!", Toast.LENGTH_SHORT).show();
 
 
-        //make request to REST API
-
-        String url = "http://bdbf4bee.ngrok.io/api/users/login";
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(),response, Toast.LENGTH_LONG).show();
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<>();
-                params.put("username ","x");
-                params.put("password ","x");
-                return super.getParams();
-            }
-        };
-
-        requestQueue.add(stringRequest);
+        }
+        if (password_result == "" && username_result == "") {
+            Toast.makeText(getApplicationContext(), "Username and Password Fields are empty!", Toast.LENGTH_SHORT).show();
 
 
+        }
+        else {
 
+            //make request to REST API
+            String url = "http://84.192.126.235/api/users/login";
+            final RequestQueue requestQueue = Volley.newRequestQueue(this);
+            StringRequest PostRequest = new StringRequest(Request.Method.POST, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            // response
+                            Log.d("Response", response);
+                            Toast.makeText(LoginActivity.this, response, Toast.LENGTH_SHORT).show();
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // error
+                            Log.d("Error.Response", error.toString());
+                            Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+            ) {
+
+                //Make a JsonObject
+
+                @Override
+                protected Map<String, String> getParams() {
+                    Map<String, String> params = new HashMap<String, String>();
+
+                    String username_result = username.getText().toString();
+                    String password_result = password.getText().toString();
+                    Log.d("login", username_result+" "+password_result);
+                    params.put("username", username_result);
+                    params.put("password", password_result);
+
+
+                    return params;
+                }
+            };
+
+            requestQueue.add(PostRequest);
+
+        }
     }
 }
