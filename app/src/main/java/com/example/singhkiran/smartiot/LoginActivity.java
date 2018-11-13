@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.ClientError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.NoConnectionError;
@@ -140,6 +141,12 @@ public class LoginActivity extends AppCompatActivity {
                 }
             };
 
+            //set the delay for timeout error = 2sec
+            PostRequest.setRetryPolicy(new DefaultRetryPolicy(
+                    200,
+                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+            //send request
             requestQueue.add(PostRequest);
 
         }
