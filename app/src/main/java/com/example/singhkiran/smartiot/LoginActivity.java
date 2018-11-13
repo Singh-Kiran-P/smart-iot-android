@@ -10,10 +10,16 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.ClientError;
+import com.android.volley.NetworkError;
 import com.android.volley.NetworkResponse;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
@@ -75,8 +81,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Username and Password Fields are empty!", Toast.LENGTH_SHORT).show();
 
 
-        }
-        else {
+        } else {
 
             //make request to REST API
             String url = "http://84.192.126.235/api/users/login";
@@ -92,10 +97,27 @@ public class LoginActivity extends AppCompatActivity {
                     },
                     new Response.ErrorListener() {
                         @Override
+                        // error handeling
                         public void onErrorResponse(VolleyError error) {
-                            // error
-                            Log.d("Error.Response", error.toString());
-                            Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
+
+                            if (error instanceof TimeoutError) {
+                                Toast.makeText(LoginActivity.this, "Main Server is down!", Toast.LENGTH_SHORT).show();
+                                Log.e("VolleyError TimeoutError: ", error.toString());
+                            } else if (error instanceof NoConnectionError) {
+                                Log.e("VolleyError NoConnectionError: ", error.toString());
+                            } else if (error instanceof AuthFailureError) {
+                                Toast.makeText(LoginActivity.this, "Invaild Username or Password", Toast.LENGTH_SHORT).show();
+                                Log.e("VolleyError AuthFailureError: ", error.toString());
+                            } else if (error instanceof ServerError) {
+                                Log.e("VolleyError ServerError: ", error.toString());
+                            } else if (error instanceof NetworkError) {
+                                Log.e("VolleyError NetworkError: ", error.toString());
+                            } else if (error instanceof ParseError) {
+                                Log.e("VolleyError ParseError: ", error.toString());
+                            } else if (error instanceof ClientError) {
+                                Log.e("VolleyError ClientError: ", error.toString());
+                                Toast.makeText(LoginActivity.this, "Username and Password are required!", Toast.LENGTH_SHORT).show();
+                            }
 
                         }
                     }
@@ -109,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     String username_result = username.getText().toString();
                     String password_result = password.getText().toString();
-                    Log.d("login", username_result+" "+password_result);
+                    Log.d("login", username_result + " " + password_result);
                     params.put("username", username_result);
                     params.put("password", password_result);
 
