@@ -92,9 +92,16 @@ public class LoginActivity extends AppCompatActivity {
 
         //change server url
         if (password_result.equals("sr")) {
-            url = "http://" + username_result + "/api/users/login";
-            Toast.makeText(LoginActivity.this, "Server changed to => " + url, Toast.LENGTH_SHORT).show();
-            Log.d("url", "login: " + url);
+
+            if(username_result.equals("")){
+                Toast.makeText(LoginActivity.this, "Server changed to => " + url, Toast.LENGTH_SHORT).show();
+                Log.d("url", "login: " + url);
+            }if(!username_result.equals("")){
+                url = "http://" + username_result + "/api/users/login";
+                Toast.makeText(LoginActivity.this, "Server changed to => " + url, Toast.LENGTH_SHORT).show();
+
+            }
+            return;
         }
 
 
@@ -155,9 +162,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
-        //set the delay for timeout error = 2sec
+        //set the delay for timeout error = 4sec
         PostRequest.setRetryPolicy(new DefaultRetryPolicy(
-                200,
+                400,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         //send request
