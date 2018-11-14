@@ -1,9 +1,9 @@
-package com.example.singhkiran.smartiot;
+package com.example.singhkiran.smartiot.ui;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +15,6 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.ClientError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkError;
-import com.android.volley.NetworkResponse;
 import com.android.volley.NoConnectionError;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
@@ -24,26 +23,20 @@ import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.singhkiran.smartiot.R;
-import com.google.gson.JsonObject;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
-    //set API url
-    String url = "http://84.192.126.235/api/users/login";
 
-    private Button signup_page;
+    //set API Server_url
+    public static String Server_url = "http://10.0.2.2/api/users/login";
+
 
     RelativeLayout rellay1, rellay2;
-
     Handler handler = new Handler();
     Runnable runnable = new Runnable() {
         @Override
@@ -52,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
             rellay2.setVisibility(View.VISIBLE);
         }
     };
-
+    private Button signup_page;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,17 +81,18 @@ public class LoginActivity extends AppCompatActivity {
 
         final String username_result = username.getText().toString();
         final String password_result = password.getText().toString();
-        Log.d("url", "login: " + url);
+        Log.d("Server_url", "login: " + Server_url);
 
-        //change server url
+        //change server Server_url
         if (password_result.equals("sr")) {
 
-            if(username_result.equals("")){
-                Toast.makeText(LoginActivity.this, "Server changed to => " + url, Toast.LENGTH_SHORT).show();
-                Log.d("url", "login: " + url);
-            }if(!username_result.equals("")){
-                url = "http://" + username_result + "/api/users/login";
-                Toast.makeText(LoginActivity.this, "Server changed to => " + url, Toast.LENGTH_SHORT).show();
+            if (username_result.equals("")) {
+                Toast.makeText(LoginActivity.this, "Server changed to => " + Server_url, Toast.LENGTH_SHORT).show();
+                Log.d("Server_url", "login: " + Server_url);
+            }
+            if (!username_result.equals("")) {
+                Server_url = "http://" + username_result + "/api/users/login";
+                Toast.makeText(LoginActivity.this, "Server changed to => " + Server_url, Toast.LENGTH_SHORT).show();
 
             }
             return;
@@ -108,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
         //make request to REST API
 
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
-        StringRequest PostRequest = new StringRequest(Request.Method.POST, url,
+        StringRequest PostRequest = new StringRequest(Request.Method.POST, Server_url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -124,20 +118,23 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (error instanceof TimeoutError) {
                             Toast.makeText(LoginActivity.this, "Back-end Server is down!\nPlease contact the admin", Toast.LENGTH_SHORT).show();
-                            Log.e("VolleyError TimeoutError: ", error.toString());
+                            Log.e("Volley TimeoutError: ", error.toString());
                         } else if (error instanceof NoConnectionError) {
-                            Log.e("VolleyError NoConnectionError: ", error.toString());
+                            Log.e("Volley NoConnection: ", error.toString());
+                            Toast.makeText(LoginActivity.this, "No Connection!\nPlease contact the admin", Toast.LENGTH_SHORT).show();
+
+
                         } else if (error instanceof AuthFailureError) {
                             Toast.makeText(LoginActivity.this, "Invaild Username or Password", Toast.LENGTH_SHORT).show();
-                            Log.e("VolleyError AuthFailureError: ", error.toString());
+                            Log.e("Volley AuthFailure: ", error.toString());
                         } else if (error instanceof ServerError) {
-                            Log.e("VolleyError ServerError: ", error.toString());
+                            Log.e("Volley ServerError: ", error.toString());
                         } else if (error instanceof NetworkError) {
-                            Log.e("VolleyError NetworkError: ", error.toString());
+                            Log.e("Volley NetworkError: ", error.toString());
                         } else if (error instanceof ParseError) {
-                            Log.e("VolleyError ParseError: ", error.toString());
+                            Log.e("Volley ParseError: ", error.toString());
                         } else if (error instanceof ClientError) {
-                            Log.e("VolleyError ClientError: ", error.toString());
+                            Log.e("Volley ClientError: ", error.toString());
                             Toast.makeText(LoginActivity.this, "Username and Password are required!", Toast.LENGTH_SHORT).show();
                         }
 
@@ -169,6 +166,15 @@ public class LoginActivity extends AppCompatActivity {
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         //send request
         requestQueue.add(PostRequest);
+    }
+
+
+    public void signup_btn(View view) {
+
+        //open signup page
+
+        Intent intent = new Intent(this, SignupActivity.class);
+        startActivity(intent);
 
     }
 }

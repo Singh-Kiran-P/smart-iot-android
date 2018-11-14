@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@drawable/grad_bg"
-    tools:context=".signupActivity">
+    tools:context=".ui.SignupActivity">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_signup"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -51,15 +51,78 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="@string/username"
+                        android:text="@string/sign_up_Name"
                         android:textAllCaps="true"
                         android:textColor="@color/white"
-                        android:textSize="10sp" />
+                        android:textSize="15sp"/>
+
+                    <EditText
+                        android:id="@+id/et_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/et_bg"
+                        android:fontFamily="sans-serif-light"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="@string/sign_up_Email"
+
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"/>
+
+
+                    <EditText
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/et_bg"
+                        android:fontFamily="sans-serif-light"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="@string/sign_up_Username"
+
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
 
                     <EditText
                         android:id="@+id/et_username"
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="40dp"
                         android:layout_marginTop="5dp"
                         android:background="@drawable/et_bg"
                         android:fontFamily="sans-serif-light"
@@ -80,23 +143,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="@string/password"
+                        android:text="@string/sign_up_pass"
+
                         android:textAllCaps="true"
                         android:textColor="@color/white"
-                        android:textSize="10sp" />
+                        android:textSize="15dp" />
+
 
                     <EditText
                         android:id="@+id/et_password"
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="40dp"
                         android:layout_marginTop="5dp"
                         android:background="@drawable/et_bg"
                         android:fontFamily="sans-serif-light"
-                        android:inputType="textPassword"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
                         android:textColor="@color/white"
-                        android:textSize="10sp" />
+                        android:textSize="15sp" />
 
                 </LinearLayout>
 
@@ -110,23 +174,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="@string/password"
+                        android:text="@string/sign_up_pass2"
+
                         android:textAllCaps="true"
                         android:textColor="@color/white"
-                        android:textSize="10sp" />
+                        android:textSize="15sp" />
 
                     <EditText
-                        android:id="@+id/et_password"
+                        android:id="@+id/et_password2"
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="40dp"
                         android:layout_marginTop="5dp"
                         android:background="@drawable/et_bg"
                         android:fontFamily="sans-serif-light"
-                        android:inputType="textPassword"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
                         android:textColor="@color/white"
-                        android:textSize="15sp" />
+                        android:textSize="15dp" />
+
 
                 </LinearLayout>
 
@@ -137,10 +202,10 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/linlay1"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="250dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/btn_bg"
                 android:fontFamily="sans-serif-medium"
-                android:onClick="signup"
+                android:onClick="signup_btn"
                 android:paddingLeft="70dp"
                 android:paddingRight="70dp"
                 android:text="@string/signup_now"
