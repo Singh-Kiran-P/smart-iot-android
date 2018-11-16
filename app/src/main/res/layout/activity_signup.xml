@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@drawable/grad_bg"
-    tools:context=".ui.SignupActivity">
+    tools:context=".UI.SignupActivity">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -208,7 +208,7 @@
                 android:onClick="signup_btn"
                 android:paddingLeft="70dp"
                 android:paddingRight="70dp"
-                android:text="@string/signup_now"
+                android:text="@string/sign_up"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16sp" />

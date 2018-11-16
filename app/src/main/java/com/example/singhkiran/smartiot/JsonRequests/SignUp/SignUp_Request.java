@@ -1,11 +1,7 @@
-package com.example.singhkiran.smartiot.ui;
+package com.example.singhkiran.smartiot.JsonRequests.SignUp;
 
-import android.os.Bundle;
-
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.content.Context;
 import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -24,68 +20,57 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.singhkiran.smartiot.R;
+import com.example.singhkiran.smartiot.JsonRequests.API_Info.API_Server;
+import com.example.singhkiran.smartiot.UI.SignupActivity;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignUp_Request {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+    public void MakeRequest(final Context context){
 
-    }
-
-    public void signup_btn(View view) {
-
-        //get url from login page
-       // String Server_url = LoginActivity.Server_url;
-        String Server_url = "http://10.0.2.2/api/users/register";
+        //get url en set signup url
+        API_Server api_server = new API_Server();
+        String Url_Register = api_server.getServer_url()+"/api/users/register";
 
 
         //get value's from inputbox login and password
-        final EditText name = findViewById(R.id.et_name);
-        final EditText email = findViewById(R.id.et_email);
-        final EditText username = findViewById(R.id.et_username);
-        final EditText password = findViewById(R.id.et_password);
-        final EditText password2 = findViewById(R.id.et_password2);
-
+        final EditText name = ((SignupActivity)context).findViewById(R.id.et_name);
+        final EditText email = ((SignupActivity)context).findViewById(R.id.et_email);
+        final EditText username = ((SignupActivity)context).findViewById(R.id.et_username);
+        final EditText password = ((SignupActivity)context).findViewById(R.id.et_password);
+        final EditText password2 = ((SignupActivity)context).findViewById(R.id.et_password2);
 
         //setting up json request
-
-
-        Log.d("Server_url", "login: " + Server_url);
-
+        Log.d("Server_url", "login: " + Url_Register);
 
         //make request to REST API
-
-        final RequestQueue requestQueue = Volley.newRequestQueue(this);
-        StringRequest PostRequest = new StringRequest(Request.Method.POST, Server_url,
+        final RequestQueue requestQueue = Volley.newRequestQueue(context);
+        StringRequest PostRequest = new StringRequest(Request.Method.POST, Url_Register,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
 
                         // response
                         Log.d("Response", response);
-                        Toast.makeText(SignupActivity.this, response, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
                     }
                 },
                 new Response.ErrorListener() {
+
                     @Override
                     // error handeling
                     public void onErrorResponse(VolleyError error) {
 
                         if (error instanceof TimeoutError) {
-                            Toast.makeText(SignupActivity.this, "Back-end Server is down!\nPlease contact the admin", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Back-end Server is down!\nPlease contact the admin", Toast.LENGTH_SHORT).show();
                             Log.e("Volley TimeoutError: ", error.toString());
                         } else if (error instanceof NoConnectionError) {
                             Log.e("Volley NoConnection: ", error.toString());
-                            Toast.makeText(SignupActivity.this, "No Connection!\nPlease contact the admin", Toast.LENGTH_SHORT).show();
-
-
+                            Toast.makeText(context, "No Connection!\nPlease contact the admin", Toast.LENGTH_SHORT).show();
                         } else if (error instanceof AuthFailureError) {
-                            Toast.makeText(SignupActivity.this, "Invaild credentials ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Invaild credentials ", Toast.LENGTH_SHORT).show();
                             Log.e("Volley AuthFailure: ", error.toString());
                         } else if (error instanceof ServerError) {
                             Log.e("Volley ServerError: ", error.toString());
@@ -95,15 +80,13 @@ public class SignupActivity extends AppCompatActivity {
                             Log.e("Volley ParseError: ", error.toString());
                         } else if (error instanceof ClientError) {
                             Log.e("Volley ClientError: ", error.toString());
-                            Toast.makeText(SignupActivity.this, "All Fields are required!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "All Fields are required!", Toast.LENGTH_SHORT).show();
                         }
-
                     }
                 }
         ) {
 
             //Make a JsonObject
-
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
@@ -122,18 +105,17 @@ public class SignupActivity extends AppCompatActivity {
                 params.put("password", pass_res);
                 params.put("password2", pass2_res);
 
-
                 return params;
             }
         };
 
         //set the delay for timeout error = 2sec
         PostRequest.setRetryPolicy(new DefaultRetryPolicy(
-                200,
+                500,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
         //send request
         requestQueue.add(PostRequest);
-
     }
 }

@@ -8,4 +8,5 @@ echo #################################
 
 : execute
 git pull
+exit
 goto execute
