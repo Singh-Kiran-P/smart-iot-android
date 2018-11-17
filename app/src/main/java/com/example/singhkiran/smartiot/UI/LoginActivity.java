@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.singhkiran.smartiot.JsonRequests.API_Info.API_Server;
 import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Request;
 
@@ -44,6 +45,10 @@ public class LoginActivity extends Activity {
         rellay2 = (RelativeLayout) findViewById(R.id.rellay2);
 
         handler.postDelayed(runnable, 2000); //2000 is the timeout for the splash
+
+        //set default API_Url
+        API_Server api_server = new API_Server();
+        api_server.setServer_url("http://192.168.0.213");
     }
 
     //open signup activity
