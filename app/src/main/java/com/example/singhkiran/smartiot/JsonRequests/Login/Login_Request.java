@@ -32,8 +32,7 @@ public class Login_Request {
 
     public void MakeRequest(final Context context) {
 
-        //get url en set signup url
-        String Url_Login = api_server.getServer_url()+"/api/users/login";
+
 
         //get value's from inputbox login and password
         final EditText username = ((LoginActivity)context).findViewById(R.id.et_username);
@@ -55,9 +54,18 @@ public class Login_Request {
                 Toast.makeText(context, "Server changed to => " + api_server.getServer_url(), Toast.LENGTH_SHORT).show();
 
             }
-            return;
+
         }
 
+
+        //get url en set signup url
+        String Url_Login;
+        if(api_server.getServer_url() == null){
+            Url_Login = api_server.DefauldServerURL+"/api/users/login";
+        }
+        else {
+            Url_Login = api_server.getServer_url() + "/api/users/login";
+        }
         //make request to REST API
         final RequestQueue requestQueue = Volley.newRequestQueue(context);
 
