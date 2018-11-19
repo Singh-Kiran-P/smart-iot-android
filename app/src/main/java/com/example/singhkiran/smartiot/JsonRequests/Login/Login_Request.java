@@ -28,10 +28,11 @@ import java.util.Map;
 
 public class Login_Request {
 
+    API_Server api_server = new API_Server();
+
     public void MakeRequest(final Context context) {
 
         //get url en set signup url
-        API_Server api_server = new API_Server();
         String Url_Login = api_server.getServer_url()+"/api/users/login";
 
         //get value's from inputbox login and password
