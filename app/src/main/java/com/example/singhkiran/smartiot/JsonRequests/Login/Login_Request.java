@@ -1,6 +1,7 @@
 package com.example.singhkiran.smartiot.JsonRequests.Login;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,10 +20,13 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.JsonRequests.API_Info.API_Server;
+import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.UI.LoginActivity;
+import com.example.singhkiran.smartiot.UI.Main_Page;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,10 +37,9 @@ public class Login_Request {
     public void MakeRequest(final Context context) {
 
 
-
         //get value's from inputbox login and password
-        final EditText username = ((LoginActivity)context).findViewById(R.id.et_username);
-        final EditText password = ((LoginActivity)context).findViewById(R.id.et_password);
+        final EditText username = ((LoginActivity) context).findViewById(R.id.et_username);
+        final EditText password = ((LoginActivity) context).findViewById(R.id.et_password);
 
         final String username_result = username.getText().toString();
         final String password_result = password.getText().toString();
@@ -50,7 +53,7 @@ public class Login_Request {
                 Log.d("Server_url", "login: " + api_server.getServer_url());
             }
             if (!username_result.equals("")) {
-                api_server.setServer_url( "http://" + username_result );
+                api_server.setServer_url("http://" + username_result);
                 Toast.makeText(context, "Server changed to => " + api_server.getServer_url(), Toast.LENGTH_SHORT).show();
 
             }
@@ -60,10 +63,9 @@ public class Login_Request {
 
         //get url en set signup url
         String Url_Login;
-        if(api_server.getServer_url() == null){
-            Url_Login = api_server.DefauldServerURL+"/api/users/login";
-        }
-        else {
+        if (api_server.getServer_url() == null) {
+            Url_Login = api_server.DefauldServerURL + "/api/users/login";
+        } else {
             Url_Login = api_server.getServer_url() + "/api/users/login";
         }
         //make request to REST API
@@ -76,9 +78,23 @@ public class Login_Request {
 
                         // response
                         Log.d("Response", response);
-                        Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
+                        //create A Login respone object form response JSON
+                        ObjectMapper objectMapper = new ObjectMapper();
+                        Login_Response login_response = null;
+                        try {
+                            login_response = objectMapper.readValue(response, Login_Response.class);
+                            Intent intent = new Intent(context, Main_Page.class);
+
+                            intent.putExtra("info", login_response);
+                            context.startActivity(intent);
+                            Toast.makeText(context, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 },
+                //when there are errors
+
                 new Response.ErrorListener() {
 
                     @Override
