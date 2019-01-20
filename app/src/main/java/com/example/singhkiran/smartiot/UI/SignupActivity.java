@@ -6,7 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.singhkiran.smartiot.R;
-import com.example.singhkiran.smartiot.JsonRequests.SignUp.SignUp_Request;
+import com.example.singhkiran.smartiot.JsonRequests.SignUp.Register_Request;
+
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -18,7 +21,8 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     public void signup_btn(View view) {
-        SignUp_Request signUp_request = new SignUp_Request();
+        Register_Request signUp_request = new Register_Request();
         signUp_request.MakeRequest(this);
+
     }
 }

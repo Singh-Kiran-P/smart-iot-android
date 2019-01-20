@@ -30,6 +30,9 @@ public class LoginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //set default API_Url
+        API_Server api_server = new API_Server();
+        api_server.setServer_url(API_Server.DefauldServerURL);
 
 
         //set onclick listener for signup page button
@@ -46,9 +49,6 @@ public class LoginActivity extends Activity {
 
         handler.postDelayed(runnable, 2000); //2000 is the timeout for the splash
 
-        //set default API_Url
-        API_Server api_server = new API_Server();
-        api_server.setServer_url("http://192.168.0.213");
     }
 
     //open signup activity

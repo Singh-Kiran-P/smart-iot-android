@@ -1,23 +1,19 @@
 package com.example.singhkiran.smartiot.JsonRequests.API_Info;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class API_Server implements Serializable {
+public class API_Server {
 
-    private String Server_url;
-    public String DefualtServerURL = "http://192.168.0.213";
+    private static String Server_url;
+    public static String DefauldServerURL = "http://84.192.126.235:8080";
 
-    public  void setServer_url(String url){
+    public  void setServer_url(String url) {
         this.Server_url = url;
     }
 
-    public String getServer_url(){
-        if (this.Server_url == null){
-            return DefualtServerURL;
-        }else {
-            return this.Server_url;
-        }
+    public String getServer_url() {
+        return this.Server_url;
+
     }
 
 }
