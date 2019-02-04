@@ -1,6 +1,8 @@
 package com.example.singhkiran.smartiot.JsonRequests.Login;
 
-public class Login_Model {
+import java.io.Serializable;
+
+public class Login_Model implements Serializable {
 
     private String id;
     private String name;
