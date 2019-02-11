@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class API_Server {
 
     private static String Server_url;
-    public static String DefauldServerURL = "http://smartiot.viewdns.net:8080";
+    public static String DefauldServerURL = "https://smartiot.viewdns.net:8080";
 
     public  void setServer_url(String url) {
         this.Server_url = url;
