@@ -14,19 +14,20 @@ public class Main_Page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_page);
+        setContentView(R.layout.activity_main__page);
+        showinfo();
     }
 
-    public void showinfo(View view) {
+    public void showinfo() {
         Intent intent  = getIntent();
         Login_Model login_response = (Login_Model) intent.getSerializableExtra("info");
         //Toast.makeText(this, login_response.getEmail(), Toast.LENGTH_SHORT).show();
 
-        TextView id = findViewById(R.id.tv_id);
-        id.setText(login_response.getId());
+        //TextView id = findViewById(R.id.tv_id);
+        //id.setText(login_response.getId());
 
-        TextView name = findViewById(R.id.tv_name);
-        name.setText(login_response.getName());
+        //TextView name = findViewById(R.id.tv_name);
+       // name.setText(login_response.getName());
 
         TextView username = findViewById(R.id.tv_username);
         username.setText(login_response.getUsername());
@@ -36,5 +37,8 @@ public class Main_Page extends AppCompatActivity {
 
         TextView role = findViewById(R.id.tv_role);
         role.setText(login_response.getRole());
+
+        TextView message = findViewById(R.id.tv_message);
+        message.setText(login_response.getMessage());
     }
 }

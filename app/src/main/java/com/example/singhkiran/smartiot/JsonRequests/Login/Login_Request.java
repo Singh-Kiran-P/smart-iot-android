@@ -71,12 +71,17 @@ public class Login_Request {
                 // response
                 Log.d("Response", postResponse.toString());
                 try {
-
                     Intent intent = new Intent(context, Main_Page.class);
-                    intent.putExtra("info",postResponse);
-                    context.startActivity(intent);
+                    if (postResponse.getStatus().equals("200")) {
+                        intent.putExtra("info", postResponse);
+                        context.startActivity(intent);
+                        Toast.makeText(context, postResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                    if (!postResponse.getStatus().equals("200")) {
 
-                    Toast.makeText(context, postResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, postResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
                 } catch (IOError e) {
                     e.printStackTrace();
                 }
