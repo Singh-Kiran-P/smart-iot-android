@@ -1,9 +1,8 @@
-package com.example.singhkiran.smartiot.UI;
+package com.example.singhkiran.smartiot.UI.Navigation.Main_Page_Fragments.Dashboard;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.TextView;
 
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
@@ -14,7 +13,7 @@ public class Main_Page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main__page);
+        setContentView(R.layout.fragment_Dashboard);
         showinfo();
     }
 

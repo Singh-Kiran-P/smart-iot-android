@@ -1,4 +1,4 @@
-package com.example.singhkiran.smartiot.UI;
+package com.example.singhkiran.smartiot.UI.Auth;
 
 import android.os.Bundle;
 

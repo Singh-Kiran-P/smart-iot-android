@@ -5,12 +5,10 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.singhkiran.smartiot.JsonRequests.API_Info.API_Server;
 import com.example.singhkiran.smartiot.JsonRequests.SmartiotAPI;
 import com.example.singhkiran.smartiot.JsonRequests.retrofit2_config;
 import com.example.singhkiran.smartiot.R;
-import com.example.singhkiran.smartiot.UI.LoginActivity;
-import com.example.singhkiran.smartiot.UI.SignupActivity;
+import com.example.singhkiran.smartiot.UI.Auth.SignupActivity;
 
 import java.io.IOError;
 import java.util.regex.Matcher;

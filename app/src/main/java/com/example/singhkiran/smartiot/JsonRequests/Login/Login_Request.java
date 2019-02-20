@@ -10,8 +10,8 @@ import com.example.singhkiran.smartiot.JsonRequests.API_Info.API_Server;
 import com.example.singhkiran.smartiot.JsonRequests.SmartiotAPI;
 import com.example.singhkiran.smartiot.JsonRequests.retrofit2_config;
 import com.example.singhkiran.smartiot.R;
-import com.example.singhkiran.smartiot.UI.LoginActivity;
-import com.example.singhkiran.smartiot.UI.Main_Page;
+import com.example.singhkiran.smartiot.UI.Auth.LoginActivity;
+import com.example.singhkiran.smartiot.UI.Navigation.Main_Page_Fragments.Dashboard.*;
 
 import java.io.IOError;
 
