@@ -81,7 +81,7 @@ public class Register_Request {
                 Log.d("Response", postResponse.toString());
                 try {
 /*
-                    Intent intent = new Intent(context, Main_Page.class);
+                    Intent intent = new Intent(context, Fragment_Profile.class);
                     intent.putExtra("info",Login_Model.class);
                     context.startActivity(intent);
 */

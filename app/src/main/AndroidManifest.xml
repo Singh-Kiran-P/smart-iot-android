@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".UI.NavigationUi.LoadAppActivity"></activity>
         <activity android:name=".UI.Auth.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +26,7 @@
             android:label="@string/title_activity_signup"
             android:theme="@style/AppTheme" />
         <activity android:name=".JsonRequests.Login.Login_Request" />
-        <activity android:name=".UI.Navigation.Main_Page_Fragments.Dashboard.Main_Page" />
+        <activity android:name=".UI.NavigationUi.Fragments.Side_Nav.Fragment_Profile" />
     </application>
 
 </manifest>

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.Navigation.Main_Page_Fragments.Dashboard.Main_Page"
+    tools:context=".UI.NavigationUi.Fragments.Side_Nav.Fragment_Profile"
     android:orientation="vertical"
     android:padding="10dp"
     android:background="#222222"

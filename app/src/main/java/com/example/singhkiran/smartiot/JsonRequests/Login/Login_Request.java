@@ -11,7 +11,7 @@ import com.example.singhkiran.smartiot.JsonRequests.SmartiotAPI;
 import com.example.singhkiran.smartiot.JsonRequests.retrofit2_config;
 import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.UI.Auth.LoginActivity;
-import com.example.singhkiran.smartiot.UI.Navigation.Main_Page_Fragments.Dashboard.*;
+import com.example.singhkiran.smartiot.UI.NavigationUi.Fragments.Side_Nav.*;
 
 import java.io.IOError;
 
@@ -71,7 +71,7 @@ public class Login_Request {
                 // response
                 Log.d("Response", postResponse.toString());
                 try {
-                    Intent intent = new Intent(context, Main_Page.class);
+                    Intent intent = new Intent(context, Fragment_Profile.class);
                     if (postResponse.getStatus().equals("200")) {
                         intent.putExtra("info", postResponse);
                         context.startActivity(intent);
