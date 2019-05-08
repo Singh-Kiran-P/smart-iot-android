@@ -36,6 +36,8 @@ public class LoadAppActivity extends AppCompatActivity implements  NavigationVie
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
     }
 
     @Override

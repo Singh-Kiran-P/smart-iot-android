@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.singhkiran.smartiot.JsonRequests.API_Info.API_Server;
@@ -12,6 +13,7 @@ import com.example.singhkiran.smartiot.JsonRequests.retrofit2_config;
 import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.UI.Auth.LoginActivity;
 import com.example.singhkiran.smartiot.UI.NavigationUi.Fragments.Side_Nav.*;
+import com.example.singhkiran.smartiot.UI.NavigationUi.LoadAppActivity;
 
 import java.io.IOError;
 
@@ -71,7 +73,10 @@ public class Login_Request {
                 // response
                 Log.d("Response", postResponse.toString());
                 try {
-                    Intent intent = new Intent(context, Fragment_Profile.class);
+
+
+
+                    Intent intent = new Intent(context, LoadAppActivity.class);
                     if (postResponse.getStatus().equals("200")) {
                         intent.putExtra("info", postResponse);
                         context.startActivity(intent);

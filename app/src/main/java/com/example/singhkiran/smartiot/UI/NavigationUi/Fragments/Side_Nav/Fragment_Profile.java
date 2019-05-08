@@ -44,9 +44,13 @@ public class Fragment_Profile extends Fragment {
         // name.setText(login_response.getName());
 
         TextView username = getActivity().findViewById(R.id.tv_username);
+        TextView navName = getActivity().findViewById(R.id.nav_header_Name);
         username.setText(login_response.getUsername());
+        navName.setText(login_response.getUsername());
 
         TextView email = getActivity().findViewById(R.id.tv_email);
+        TextView navEmail = getActivity().findViewById(R.id.nav_header_Email);
+        navEmail.setText(login_response.getUsername());
         email.setText(login_response.getEmail());
 
         TextView role = getActivity().findViewById(R.id.tv_role);
