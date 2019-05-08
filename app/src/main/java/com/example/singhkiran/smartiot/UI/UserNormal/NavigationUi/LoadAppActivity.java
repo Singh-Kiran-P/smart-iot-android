@@ -1,6 +1,7 @@
-package com.example.singhkiran.smartiot.UI.NavigationUi;
+package com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,8 +20,9 @@ import android.widget.TextView;
 
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
 import com.example.singhkiran.smartiot.R;
-import com.example.singhkiran.smartiot.UI.NavigationUi.Fragments.Side_Nav.Fragment_Profile;
-import com.example.singhkiran.smartiot.UI.NavigationUi.Fragments.fragment_mainpage;
+import com.example.singhkiran.smartiot.UI.Auth.LoginActivity;
+import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Profile;
+import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.fragment_mainpage;
 
 public class LoadAppActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -28,7 +30,7 @@ public class LoadAppActivity extends AppCompatActivity implements NavigationView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_load_app);
+        setContentView(R.layout.nrml_nav_activity_load_app);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -75,7 +77,7 @@ public class LoadAppActivity extends AppCompatActivity implements NavigationView
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.nrml_main, menu);
         return true;
     }
 
@@ -102,15 +104,19 @@ public class LoadAppActivity extends AppCompatActivity implements NavigationView
 
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_account) {
             fragment = new Fragment_Profile();
         } else if (id == R.id.nav_gallery) {
+            fragment = new fragment_mainpage();
 
         } else if (id == R.id.nav_slideshow) {
+            fragment = new fragment_mainpage();
 
         } else if (id == R.id.nav_manage) {
+            fragment = new fragment_mainpage();
 
         } else if (id == R.id.nav_share) {
+            fragment = new fragment_mainpage();
 
         } else if (id == R.id.nav_send) {
 
@@ -130,5 +136,31 @@ public class LoadAppActivity extends AppCompatActivity implements NavigationView
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void logout(MenuItem item) {
+        Intent login = new Intent(this, LoginActivity.class);
+        startActivity(login);
+    }
+
+    public void goTo_Home(View view) {
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+
+
+        ft.replace(R.id.screen_area, new fragment_mainpage());
+        ft.commit();
+    }
+
+    public void showPolicy(MenuItem item) {
+        try{
+            startActivity( new Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/smartiot2456/")));
+        }catch (Exception e ){
+
+        }
     }
 }

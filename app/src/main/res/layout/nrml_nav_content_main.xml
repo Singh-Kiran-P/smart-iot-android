@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".UI.NavigationUi.LoadAppActivity"
-    tools:showIn="@layout/app_bar_main">
+    tools:context=".UI.UserNormal.NavigationUi.LoadAppActivity"
+    tools:showIn="@layout/nrml_nav_app_bar_main">
 
 
     <FrameLayout

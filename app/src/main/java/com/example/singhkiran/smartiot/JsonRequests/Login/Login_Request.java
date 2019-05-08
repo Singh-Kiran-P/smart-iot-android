@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.singhkiran.smartiot.JsonRequests.API_Info.API_Server;
@@ -12,8 +11,7 @@ import com.example.singhkiran.smartiot.JsonRequests.SmartiotAPI;
 import com.example.singhkiran.smartiot.JsonRequests.retrofit2_config;
 import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.UI.Auth.LoginActivity;
-import com.example.singhkiran.smartiot.UI.NavigationUi.Fragments.Side_Nav.*;
-import com.example.singhkiran.smartiot.UI.NavigationUi.LoadAppActivity;
+import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.LoadAppActivity;
 
 import java.io.IOError;
 
