@@ -1,5 +1,6 @@
 package com.example.singhkiran.smartiot.UI.NavigationUi;
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,12 +13,16 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 
+import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
 import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.UI.NavigationUi.Fragments.Side_Nav.Fragment_Profile;
+import com.example.singhkiran.smartiot.UI.NavigationUi.Fragments.fragment_mainpage;
 
-public class LoadAppActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener {
+public class LoadAppActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
     @Override
@@ -34,9 +39,26 @@ public class LoadAppActivity extends AppCompatActivity implements  NavigationVie
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        Intent intent = getIntent();
+        Login_Model login_response = (Login_Model) intent.getSerializableExtra("info");
+
+
+        TextView navName = navigationView.getHeaderView(0).findViewById(R.id.nav_header_Name);
+        navName.setText(login_response.getUsername());
+
+        TextView navEmail =  navigationView.getHeaderView(0).findViewById(R.id.nav_header_Email);
+        navEmail.setText(login_response.getEmail());
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+
+
+        ft.replace(R.id.screen_area, new fragment_mainpage());
+        ft.commit();
 
     }
 
@@ -76,7 +98,7 @@ public class LoadAppActivity extends AppCompatActivity implements  NavigationVie
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        Fragment fragment=null;
+        Fragment fragment = null;
 
         int id = item.getItemId();
 
@@ -94,14 +116,13 @@ public class LoadAppActivity extends AppCompatActivity implements  NavigationVie
 
         }
 
-        if (fragment != null){
+        if (fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction ft = fragmentManager.beginTransaction();
 
 
-            ft.replace(R.id.screen_area,fragment);
+            ft.replace(R.id.screen_area, fragment);
             ft.commit();
-
 
 
         }
