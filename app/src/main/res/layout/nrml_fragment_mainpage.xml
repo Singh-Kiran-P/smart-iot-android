@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Mainpage"
-    android:background="#222222"
-    >
+    android:background="@drawable/welcom_bg"
+    android:orientation="vertical"
+    tools:context=".UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Mainpage">
 
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textSize="50dp"
-            android:textColor="@color/white"
-            android:text="@string/Welcom" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
 
-    </RelativeLayout>
-    <!-- TODO: Update blank fragment layout -->
+        android:layout_marginBottom="30dp"
+        android:text="SMARTIOT"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30dp"
 
-</FrameLayout>
+        />
+
+</RelativeLayout>
