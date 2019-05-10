@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:color="#009EC5" android:state_checked="true"/>
+    <item android:color="@color/orange" android:state_checked="false"/>
 
-    <item android:color="#FFFFFF" android:state_checked="false"/>
-
-
-    <item android:background="#FFFFFF" android:state_active="true"/>
 
 </selector>

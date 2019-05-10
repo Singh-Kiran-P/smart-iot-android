@@ -52,7 +52,7 @@ public class LoadAppActivity extends AppCompatActivity implements NavigationView
         TextView navName = navigationView.getHeaderView(0).findViewById(R.id.nav_header_Name);
         navName.setText(login_response.getUsername());
 
-        TextView navEmail =  navigationView.getHeaderView(0).findViewById(R.id.nav_header_Email);
+        TextView navEmail = navigationView.getHeaderView(0).findViewById(R.id.nav_header_Email);
         navEmail.setText(login_response.getEmail());
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -104,15 +104,12 @@ public class LoadAppActivity extends AppCompatActivity implements NavigationView
 
         int id = item.getItemId();
 
-        if (id == R.id.nav_account) {
+        if (id == R.id.nav_profile) {
             fragment = new Fragment_Profile();
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_iot) {
             fragment = new fragment_mainpage();
 
-        } else if (id == R.id.nav_slideshow) {
-            fragment = new fragment_mainpage();
-
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_logs) {
             fragment = new fragment_mainpage();
 
         } else if (id == R.id.nav_share) {
@@ -157,9 +154,9 @@ public class LoadAppActivity extends AppCompatActivity implements NavigationView
     }
 
     public void showPolicy(MenuItem item) {
-        try{
-            startActivity( new Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/smartiot2456/")));
-        }catch (Exception e ){
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/smartiot2456/")));
+        } catch (Exception e) {
 
         }
     }

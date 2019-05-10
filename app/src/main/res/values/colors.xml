@@ -5,6 +5,9 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="transparent">#00000000</color>
+    <color name="transparent_Black">#C9000000</color>
+    <color name="light_Black">#B9141414</color>
+
     <color name="gradStart">#19AA8B</color>
     <color name="gradStop">#23A7D8</color>
 
@@ -25,6 +28,20 @@
 
 
 
+
+    <color name="PcolorPrimary">#49BEFF</color>
+    <color name="PcolorPrimaryDark">#65DCE5</color>
+    <color name="PcolorAccent">#0D5D98</color>
+    <color name="address">#2F7092</color>
+    <color name="followers">#0D5D98</color>
+    <color name="headings">#3797CF</color>
+    <color name="solidCircle">#AAFFFFFF</color>
+    <color name="circleBorder">#50FFFFFF</color>
+    <color name="followersBg">#65DCE5</color>
+    <color name="followingBg">#49BEFF</color>
+    <color name="grey">#E5E5E5</color>
+    <color name="gradStartProfile">#63C9FF</color>
+    <color name="gradEndProfile">#67EFC8</color>
 
 
 </resources>

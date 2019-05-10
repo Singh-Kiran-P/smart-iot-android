@@ -18,12 +18,12 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@color/transparent_Black"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nrml_nav_header_main"
-        app:menu="@menu/nrml_activity_main_drawer"
-        android:background="#75000000"
+        app:itemIconTint="@drawable/selector_navbar_icon"
         app:itemTextColor="@drawable/selector_navbar"
-        app:itemIconTint="@color/orange"
-       />
+        app:itemBackground="@drawable/selector_background"
+        app:menu="@menu/nrml_activity_main_drawer" />
 
 </android.support.v4.widget.DrawerLayout>
