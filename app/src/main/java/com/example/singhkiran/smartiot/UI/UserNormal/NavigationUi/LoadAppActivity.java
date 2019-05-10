@@ -21,8 +21,9 @@ import android.widget.TextView;
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
 import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.UI.Auth.LoginActivity;
+import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Iot;
 import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Profile;
-import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.fragment_mainpage;
+import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Mainpage;
 
 public class LoadAppActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -59,7 +60,7 @@ public class LoadAppActivity extends AppCompatActivity implements NavigationView
         FragmentTransaction ft = fragmentManager.beginTransaction();
 
 
-        ft.replace(R.id.screen_area, new fragment_mainpage());
+        ft.replace(R.id.screen_area, new Fragment_Mainpage());
         ft.commit();
 
     }
@@ -107,13 +108,13 @@ public class LoadAppActivity extends AppCompatActivity implements NavigationView
         if (id == R.id.nav_profile) {
             fragment = new Fragment_Profile();
         } else if (id == R.id.nav_iot) {
-            fragment = new fragment_mainpage();
+            fragment = new Fragment_Iot();
 
         } else if (id == R.id.nav_logs) {
-            fragment = new fragment_mainpage();
+            fragment = new Fragment_Mainpage();
 
         } else if (id == R.id.nav_share) {
-            fragment = new fragment_mainpage();
+            fragment = new Fragment_Mainpage();
 
         } else if (id == R.id.nav_send) {
 
@@ -149,7 +150,7 @@ public class LoadAppActivity extends AppCompatActivity implements NavigationView
         FragmentTransaction ft = fragmentManager.beginTransaction();
 
 
-        ft.replace(R.id.screen_area, new fragment_mainpage());
+        ft.replace(R.id.screen_area, new Fragment_Mainpage());
         ft.commit();
     }
 

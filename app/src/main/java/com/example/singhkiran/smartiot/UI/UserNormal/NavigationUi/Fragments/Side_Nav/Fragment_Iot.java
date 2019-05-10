@@ -1,0 +1,81 @@
+package com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav;
+
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.GridLayout;
+import android.widget.Toast;
+
+import com.example.singhkiran.smartiot.R;
+import com.example.singhkiran.smartiot.UI.UserNormal.Iot_Devices.LedActivity;
+
+
+public class Fragment_Iot extends Fragment {
+    GridLayout mainGrid;
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.nrml_fragment_iot, null);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        mainGrid = (GridLayout) getActivity().findViewById(R.id.mainGrid);
+
+        //Set Event
+        setSingleEvent(mainGrid);
+        //setToggleEvent(mainGrid);
+    }
+
+    private void setToggleEvent(GridLayout mainGrid) {
+        //Loop all child item of Main Grid
+        for (int i = 0; i < mainGrid.getChildCount(); i++) {
+            //You can see , all child item is CardView , so we just cast object to CardView
+            final CardView cardView = (CardView) mainGrid.getChildAt(i);
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (cardView.getCardBackgroundColor().getDefaultColor() == -1) {
+                        //Change background color
+                        cardView.setCardBackgroundColor(Color.parseColor("#FF6F00"));
+                        Toast.makeText(getContext(), "State : True", Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        //Change background color
+                        cardView.setCardBackgroundColor(Color.parseColor("#FFFFFF"));
+                        Toast.makeText(getContext(), "State : False", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+
+    private void setSingleEvent(GridLayout mainGrid) {
+        //Loop all child item of Main Grid
+        for (int i = 0; i < mainGrid.getChildCount(); i++) {
+            //You can see , all child item is CardView , so we just cast object to CardView
+            CardView cardView = (CardView) mainGrid.getChildAt(i);
+            final int finalI = i;
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    Intent intent = new Intent(getContext(), LedActivity.class);
+                    intent.putExtra("info","This is activity from card item index  "+finalI);
+                    startActivity(intent);
+
+                }
+            });
+        }
+    }
+}
+

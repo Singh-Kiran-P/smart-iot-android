@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".UI.UserNormal.NavigationUi.LoadAppActivity"></activity>
+        <activity android:name=".UI.UserNormal.Iot_Devices.LedActivity"></activity>
+        <activity android:name=".UI.UserNormal.NavigationUi.LoadAppActivity" />
         <activity android:name=".UI.Auth.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
