@@ -22,7 +22,7 @@
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_memory" />
+            android:src="@drawable/ic_icons8_raspberry_pi" />
 
         <RelativeLayout
             android:id="@+id/rellay1"

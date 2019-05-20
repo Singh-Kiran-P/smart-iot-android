@@ -1,6 +1,6 @@
 package com.example.singhkiran.smartiot.UI.UserNormal.Iot_Devices;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 

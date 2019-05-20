@@ -2,14 +2,11 @@ package com.example.singhkiran.smartiot.UI.Auth;
 
 import android.os.Bundle;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.JsonRequests.SignUp.Register_Request;
-
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignupActivity extends AppCompatActivity {
 

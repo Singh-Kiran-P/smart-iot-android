@@ -154,6 +154,8 @@
                         android:id="@+id/et_password"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
+                        android:inputType="textPassword"
+
                         android:layout_marginTop="5dp"
                         android:background="@drawable/et_bg"
                         android:fontFamily="sans-serif-light"
@@ -182,6 +184,8 @@
 
                     <EditText
                         android:id="@+id/et_password2"
+                        android:inputType="textPassword"
+
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="5dp"

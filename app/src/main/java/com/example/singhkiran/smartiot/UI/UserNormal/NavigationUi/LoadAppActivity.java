@@ -2,16 +2,18 @@ package com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
+
+import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Logs;
+import com.google.android.material.navigation.NavigationView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -111,7 +113,7 @@ public class LoadAppActivity extends AppCompatActivity implements NavigationView
             fragment = new Fragment_Iot();
 
         } else if (id == R.id.nav_logs) {
-            fragment = new Fragment_Mainpage();
+            fragment = new Fragment_Logs();
 
         } else if (id == R.id.nav_share) {
             fragment = new Fragment_Mainpage();
