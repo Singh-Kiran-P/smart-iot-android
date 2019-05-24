@@ -1,39 +1,38 @@
-package com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi;
+package com.example.singhkiran.smartiot.UI.UserAdmin.NavigationUi;
 
 import android.content.Intent;
 import android.net.Uri;
-
-import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Logs;
-import com.google.android.material.navigation.NavigationView;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
 import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.UI.Auth.LoginActivity;
-import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Iot;
-import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Profile;
-import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Mainpage;
+import com.example.singhkiran.smartiot.UI.UserAdmin.NavigationUi.Fragments.Side_Nav.Fragment_Iot;
+import com.example.singhkiran.smartiot.UI.UserAdmin.NavigationUi.Fragments.Side_Nav.Fragment_Logs;
+import com.example.singhkiran.smartiot.UI.UserAdmin.NavigationUi.Fragments.Side_Nav.Fragment_Mainpage;
+import com.example.singhkiran.smartiot.UI.UserAdmin.NavigationUi.Fragments.Side_Nav.Fragment_Profile;
+import com.google.android.material.navigation.NavigationView;
 
-public class LoadAppActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class AdminLoadAppActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.nrml_nav_activity_load_app);
+        setContentView(R.layout.admin_nav_activity_load_app);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -80,7 +79,7 @@ public class LoadAppActivity extends AppCompatActivity implements NavigationView
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.nrml_main, menu);
+        getMenuInflater().inflate(R.menu.admin_main, menu);
         return true;
     }
 
@@ -114,11 +113,6 @@ public class LoadAppActivity extends AppCompatActivity implements NavigationView
 
         } else if (id == R.id.nav_logs) {
             fragment = new Fragment_Logs();
-
-        } else if (id == R.id.nav_share) {
-            fragment = new Fragment_Mainpage();
-
-        } else if (id == R.id.nav_send) {
 
         }
 

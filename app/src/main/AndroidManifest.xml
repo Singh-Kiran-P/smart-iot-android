@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".UI.UserNormal.Iot_Devices.LedActivity"></activity>
-        <activity android:name=".UI.UserNormal.NavigationUi.LoadAppActivity" />
+        <activity android:name=".UI.UserNormal.NavigationUi.NormalLoadAppActivity" />
         <activity android:name=".UI.Auth.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +28,7 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".JsonRequests.Login.Login_Request" />
         <activity android:name=".UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Profile" />
+        <activity android:name=".UI.UserAdmin.NavigationUi.AdminLoadAppActivity" />
     </application>
 
 </manifest>

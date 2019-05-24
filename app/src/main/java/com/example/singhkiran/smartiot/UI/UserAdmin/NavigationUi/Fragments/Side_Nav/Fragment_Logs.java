@@ -24,19 +24,19 @@ public class Fragment_Logs extends Fragment {
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-        new CountDownTimer(30000, 1000) {
-
-            public void onTick(long millisUntilFinished) {
-
-            }
-
-            public void onFinish() {
-                LottieAnimationView animationView = getActivity().findViewById(R.id.animation_view);
-                animationView.setVisibility(view.INVISIBLE);
-            }
-
-        }.start();
+//
+//        new CountDownTimer(30000, 1000) {
+//
+//            public void onTick(long millisUntilFinished) {
+//
+//            }
+//
+//            public void onFinish() {
+//                LottieAnimationView animationView = getActivity().findViewById(R.id.animation_view);
+//                animationView.setVisibility(view.INVISIBLE);
+//            }
+//
+//        }.start();
     }
 
 

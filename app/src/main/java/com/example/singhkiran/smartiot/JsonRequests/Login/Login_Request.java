@@ -11,7 +11,8 @@ import com.example.singhkiran.smartiot.JsonRequests.SmartiotAPI;
 import com.example.singhkiran.smartiot.JsonRequests.retrofit2_config;
 import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.UI.Auth.LoginActivity;
-import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.LoadAppActivity;
+import com.example.singhkiran.smartiot.UI.UserAdmin.NavigationUi.AdminLoadAppActivity;
+import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.NormalLoadAppActivity;
 
 import java.io.IOError;
 
@@ -72,18 +73,36 @@ public class Login_Request {
                 Log.d("Response", postResponse.toString());
                 try {
 
-
-
-                    Intent intent = new Intent(context, LoadAppActivity.class);
-                    if (postResponse.getStatus().equals("200")) {
-                        intent.putExtra("info", postResponse);
-                        context.startActivity(intent);
+                    if (postResponse.getRole() == null) {
                         Toast.makeText(context, postResponse.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                    if (!postResponse.getStatus().equals("200")) {
 
-                        Toast.makeText(context, postResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        return;
                     }
+                    if (postResponse.getRole().equals("admin")) {
+                        Intent intent = new Intent(context, AdminLoadAppActivity.class);
+                        if (postResponse.getStatus().equals("200")) {
+                            intent.putExtra("info", postResponse);
+                            context.startActivity(intent);
+                            Toast.makeText(context, postResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                        if (!postResponse.getStatus().equals("200")) {
+
+                            Toast.makeText(context, postResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    if (postResponse.getRole().equals("normal_user")) {
+                        Intent intent = new Intent(context, NormalLoadAppActivity.class);
+                        if (postResponse.getStatus().equals("200")) {
+                            intent.putExtra("info", postResponse);
+                            context.startActivity(intent);
+                            Toast.makeText(context, postResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                        if (!postResponse.getStatus().equals("200")) {
+
+                            Toast.makeText(context, postResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
 
                 } catch (IOError e) {
                     e.printStackTrace();

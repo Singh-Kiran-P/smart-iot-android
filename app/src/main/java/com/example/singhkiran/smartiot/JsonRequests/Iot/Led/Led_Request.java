@@ -1,20 +1,12 @@
 package com.example.singhkiran.smartiot.JsonRequests.Iot.Led;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.singhkiran.smartiot.JsonRequests.API_Info.API_Server;
-import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
 import com.example.singhkiran.smartiot.JsonRequests.SmartiotAPI;
 import com.example.singhkiran.smartiot.JsonRequests.retrofit2_config;
-import com.example.singhkiran.smartiot.R;
-import com.example.singhkiran.smartiot.UI.Auth.LoginActivity;
-import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.LoadAppActivity;
 
 import java.io.IOError;
 
