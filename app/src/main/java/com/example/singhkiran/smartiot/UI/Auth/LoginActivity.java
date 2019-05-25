@@ -1,6 +1,5 @@
 package com.example.singhkiran.smartiot.UI.Auth;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,11 +8,13 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.example.singhkiran.smartiot.JsonRequests.API_Info.API_Server;
-import com.example.singhkiran.smartiot.R;
-import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Request;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class LoginActivity extends Activity {
+import com.example.singhkiran.smartiot.JsonRequests.API_Info.API_Server;
+import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Request;
+import com.example.singhkiran.smartiot.R;
+
+public class LoginActivity extends AppCompatActivity {
 
     RelativeLayout rellay1, rellay2;
     Handler handler = new Handler();
