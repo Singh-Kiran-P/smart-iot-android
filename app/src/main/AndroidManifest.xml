@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".UI.UserNormal.Iot_Devices.UltraSensorActivity"></activity>
+        <activity android:name=".Firebase.FirebaseMainActivity"></activity>
+        <activity android:name=".UI.UserNormal.Iot_Devices.UltraSensorActivity" />
         <activity android:name=".UI.UserNormal.Iot_Devices.LedActivity" />
         <activity android:name=".UI.UserNormal.NavigationUi.NormalLoadAppActivity" />
         <activity android:name=".UI.Auth.LoginActivity">
@@ -30,6 +31,12 @@
         <activity android:name=".JsonRequests.Login.Login_Request" />
         <activity android:name=".UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Profile" />
         <activity android:name=".UI.UserAdmin.NavigationUi.AdminLoadAppActivity" />
+
+        <service android:name=".Firebase.MyFirebase">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

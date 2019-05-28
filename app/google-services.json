@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "829783728626",
+    "firebase_url": "https://smart-iot-android.firebaseio.com",
+    "project_id": "smart-iot-android",
+    "storage_bucket": "smart-iot-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829783728626:android:d08d12af685f4831",
+        "android_client_info": {
+          "package_name": "com.example.singhkiran.smartiot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829783728626-1d5cm27urvsq1hkh1905146kpvr16ipp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.singhkiran.smartiot",
+            "certificate_hash": "508dd3ecd338849e95bf13782fe34c594977a0f7"
+          }
+        },
+        {
+          "client_id": "829783728626-2uqti6g5dnmqoae47ip9pd1sk7879b3c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChJWak_DwrgcdveCWcbCrKx2MmL_C6mGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829783728626-2uqti6g5dnmqoae47ip9pd1sk7879b3c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

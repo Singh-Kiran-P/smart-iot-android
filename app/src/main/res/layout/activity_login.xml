@@ -111,11 +111,10 @@
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="45dp"
                 android:layout_below="@+id/linlay1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
-                android:background="@drawable/btn_bg"
                 android:fontFamily="sans-serif-medium"
                 android:paddingLeft="70dp"
                 android:paddingRight="70dp"
@@ -124,6 +123,13 @@
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:onClick="login"
+                app:cornerRadius="16dp"
+
+
+                android:backgroundTint="@color/transparent"
+
+
+
                 />
 
         </RelativeLayout>
@@ -148,6 +154,8 @@
             android:text="@string/sign_up"
             android:textAllCaps="true"
             android:textColor="@color/white"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+
             android:onClick="signup_btn"/>
 
         <Button
@@ -158,6 +166,7 @@
             android:fontFamily="sans-serif"
             android:text="@string/forget_password"
             android:textAllCaps="true"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:textColor="@color/white" />
 
     </RelativeLayout>

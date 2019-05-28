@@ -5,6 +5,7 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.singhkiran.smartiot.Firebase.MyFirebase;
 import com.example.singhkiran.smartiot.JsonRequests.SmartiotAPI;
 import com.example.singhkiran.smartiot.JsonRequests.retrofit2_config;
 import com.example.singhkiran.smartiot.R;
@@ -24,6 +25,7 @@ public class Register_Request {
     String Email;
     String Username;
     String Password;
+    String firebase_token;
 
 
     public void MakeRequest(final Context context1) {
@@ -39,6 +41,7 @@ public class Register_Request {
         Email = email.getText().toString();
         Username = username.getText().toString();
         Password = password.getText().toString();
+        firebase_token = MyFirebase.Refreshed_Token;
 
 
         Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
@@ -64,7 +67,7 @@ public class Register_Request {
 
     private void createRequest() {
 
-        Register_Model register = new Register_Model(Name, Email, Username, Password);
+        Register_Model register = new Register_Model(Name, Email, Username, Password,firebase_token);
 
 
         Call<Register_Model> call = smartiotAPI.registerPost(register);
