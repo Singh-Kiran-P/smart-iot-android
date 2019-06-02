@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
 import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.UI.UserNormal.Iot_Devices.LedActivity;
+import com.example.singhkiran.smartiot.UI.UserNormal.Iot_Devices.Temp_HumidityActivity;
 import com.example.singhkiran.smartiot.UI.UserNormal.Iot_Devices.UltraSensorActivity;
 
 
@@ -99,6 +100,17 @@ public class Fragment_Iot extends Fragment {
                 Intent intent = getActivity().getIntent();
                 Login_Model login_response = (Login_Model) intent.getSerializableExtra("info");
                 Intent intent2 = new Intent(getContext(), UltraSensorActivity.class);
+                intent2.putExtra("info", login_response);
+                startActivity(intent2);
+            }
+        });
+        CardView cardViewTemp = (CardView) mainGrid.getChildAt(2);
+        cardViewTemp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = getActivity().getIntent();
+                Login_Model login_response = (Login_Model) intent.getSerializableExtra("info");
+                Intent intent2 = new Intent(getContext(), Temp_HumidityActivity.class);
                 intent2.putExtra("info", login_response);
                 startActivity(intent2);
             }

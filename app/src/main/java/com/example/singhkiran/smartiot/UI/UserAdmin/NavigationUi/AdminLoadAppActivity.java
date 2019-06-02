@@ -20,10 +20,11 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
 import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.UI.Auth.LoginActivity;
-import com.example.singhkiran.smartiot.UI.UserAdmin.NavigationUi.Fragments.Side_Nav.Fragment_Iot;
+import com.example.singhkiran.smartiot.UI.UserAdmin.NavigationUi.Fragments.Side_Nav.Fragment_AdminPanel;
 import com.example.singhkiran.smartiot.UI.UserAdmin.NavigationUi.Fragments.Side_Nav.Fragment_Logs;
 import com.example.singhkiran.smartiot.UI.UserAdmin.NavigationUi.Fragments.Side_Nav.Fragment_Mainpage;
-import com.example.singhkiran.smartiot.UI.UserAdmin.NavigationUi.Fragments.Side_Nav.Fragment_Profile;
+import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Iot;
+import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Profile;
 import com.google.android.material.navigation.NavigationView;
 
 public class AdminLoadAppActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -113,6 +114,9 @@ public class AdminLoadAppActivity extends AppCompatActivity implements Navigatio
 
         } else if (id == R.id.nav_logs) {
             fragment = new Fragment_Logs();
+
+        }else if (id == R.id.nav_adminPanel) {
+            fragment = new Fragment_AdminPanel();
 
         }
 

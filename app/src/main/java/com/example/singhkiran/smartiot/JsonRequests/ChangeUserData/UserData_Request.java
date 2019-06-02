@@ -1,10 +1,10 @@
-package com.example.singhkiran.smartiot.JsonRequests.Iot.Led;
+package com.example.singhkiran.smartiot.JsonRequests.ChangeUserData;
 
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.singhkiran.smartiot.JsonRequests.API_Info.API_Server;
+import com.example.singhkiran.smartiot.JsonRequests.Iot.Led.Led_Model;
 import com.example.singhkiran.smartiot.JsonRequests.SmartiotAPI;
 import com.example.singhkiran.smartiot.JsonRequests.retrofit2_config;
 
@@ -14,15 +14,15 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Led_Request {
-    API_Server api_server = new API_Server();
+public class UserData_Request {
+
     Context context;
     private SmartiotAPI smartiotAPI;
-    private Led_Model led_model;
+    private UserData_Model userData_model;
 
-    public Led_Request(String action, String userId, String endpoint, Context context) {
+    public UserData_Request(String userId, String name, String email,String password, Context context) {
         this.context = context;
-        led_model = new Led_Model(action, userId, endpoint,"");
+        userData_model = new UserData_Model(name,email,userId,password);
         MakeRequest(context);
 
     }
@@ -37,24 +37,24 @@ public class Led_Request {
 
     private void createRequest() {
 
-        Call<Led_Model> call = smartiotAPI.ledPost(led_model);
+        Call<UserData_Model> call = smartiotAPI.changeData_Post(userData_model);
 
-        call.enqueue(new Callback<Led_Model>() {
+        call.enqueue(new Callback<UserData_Model>() {
             @Override
-            public void onResponse(Call<Led_Model> call, Response<Led_Model> response) {
+            public void onResponse(Call<UserData_Model> call, Response<UserData_Model> response) {
                 if (!response.isSuccessful()) {
                     Toast.makeText(context, "Code :" + response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Led_Model postResponse = response.body();
+                UserData_Model postResponse = response.body();
                 // response
                 Log.d("Response", postResponse.toString());
                 String Message = postResponse.getMessage();
                 try {
-                    if (postResponse.getStatus().equals("403")) {
+                    if (postResponse.getStatus().equals(403)) {
                         Toast.makeText(context, Message, Toast.LENGTH_SHORT).show();
                     }
-                    if (postResponse.getStatus().equals("200")) {
+                    if (postResponse.getStatus().equals(200)) {
                         Toast.makeText(context, Message, Toast.LENGTH_SHORT).show();
                     }
 
@@ -65,8 +65,7 @@ public class Led_Request {
             }
 
             @Override
-            public void onFailure(Call<Led_Model> call, Throwable t) {
-                Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<UserData_Model> call, Throwable t) {
 
             }
 
@@ -75,4 +74,3 @@ public class Led_Request {
 
     }
 }
-

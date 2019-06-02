@@ -1,9 +1,12 @@
 package com.example.singhkiran.smartiot.UI.UserNormal.Iot_Devices;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,6 +25,10 @@ public class LedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nrml_iot_activity_led);
+
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F44336")));
 
         switchCompat = findViewById(R.id.switchButton);
         imageView = findViewById(R.id.imageView);

@@ -7,11 +7,22 @@ public class Led_Model implements Serializable {
     private String action;
     private String endPoint;
 
+    public String getFirebase_token() {
+        return firebase_token;
+    }
 
-    public Led_Model(String action,String userId,String endPoint){
+    public void setFirebase_token(String firebase_token) {
+        this.firebase_token = firebase_token;
+    }
+
+    private String firebase_token;
+
+
+    public Led_Model(String action,String userId,String endPoint,String firebase_token){
         this.userId = userId;
         this.action = action;
         this.endPoint = endPoint;
+        this.firebase_token = firebase_token;
     }
 
     public String getMessage() {

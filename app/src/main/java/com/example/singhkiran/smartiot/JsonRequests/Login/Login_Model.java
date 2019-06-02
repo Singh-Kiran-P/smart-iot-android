@@ -13,6 +13,10 @@ public class Login_Model implements Serializable {
     private String message;
     private String status;
 
+    public String getPassword() {
+        return password;
+    }
+
     public  Login_Model(String username, String password) {
         this.username = username;
         this.password = password;
