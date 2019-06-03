@@ -30,4 +30,5 @@
     <string name="action_logout">Logout</string>
     <string name="Welcom">Welcom To SmartIOT</string>
     <string name="action_policy">Privacy Policy</string>
+    <string name="action_RegisterMobile">Register Mobile</string>
 </resources>

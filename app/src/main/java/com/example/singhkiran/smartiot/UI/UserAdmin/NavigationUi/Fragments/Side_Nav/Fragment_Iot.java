@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
 import com.example.singhkiran.smartiot.R;
-import com.example.singhkiran.smartiot.UI.UserNormal.Iot_Devices.LedActivity;
+import com.example.singhkiran.smartiot.UI.UserNormal.Acticitys.Iot_Devices.LedActivity;
 
 
 public class Fragment_Iot extends Fragment {

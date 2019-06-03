@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
@@ -162,5 +163,9 @@ public class NormalLoadAppActivity extends AppCompatActivity implements Navigati
         } catch (Exception e) {
 
         }
+    }
+
+    public void Register(MenuItem item) {
+        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();
     }
 }

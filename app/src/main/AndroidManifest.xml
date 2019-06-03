@@ -13,16 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".UI.UserAdmin.AdminPanel.DevicesActivity"></activity>
+        <activity android:name=".UI.UserAdmin.AdminPanel.LogsActivity" />
+        <activity android:name=".UI.UserAdmin.AdminPanel.DevicesActivity" />
         <activity
-            android:name=".UI.UserNormal.Iot_Devices.Temp_HumidityActivity"
+            android:name=".UI.UserNormal.Acticitys.Iot_Devices.Temp_HumidityActivity"
             android:theme="@style/Theme.AppCompat" />
         <activity android:name=".Firebase.FirebaseMainActivity" />
         <activity
-            android:name=".UI.UserNormal.Iot_Devices.UltraSensorActivity"
+            android:name=".UI.UserNormal.Acticitys.Iot_Devices.UltraSensorActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
-            android:name=".UI.UserNormal.Iot_Devices.LedActivity"
+            android:name=".UI.UserNormal.Acticitys.Iot_Devices.LedActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity android:name=".UI.UserNormal.NavigationUi.NormalLoadAppActivity" />
         <activity android:name=".UI.Auth.LoginActivity">

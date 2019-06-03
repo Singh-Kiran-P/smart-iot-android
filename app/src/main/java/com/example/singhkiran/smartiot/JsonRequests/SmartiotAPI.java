@@ -1,5 +1,6 @@
 package com.example.singhkiran.smartiot.JsonRequests;
 
+import com.example.singhkiran.smartiot.JsonRequests.AdminPanel.Devices.DeviceWrapper;
 import com.example.singhkiran.smartiot.JsonRequests.AdminPanel.Devices.Device_Model;
 import com.example.singhkiran.smartiot.JsonRequests.ChangeUserData.UserData_Model;
 import com.example.singhkiran.smartiot.JsonRequests.Iot.Led.Led_Model;
@@ -10,6 +11,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 
@@ -26,8 +28,8 @@ public interface SmartiotAPI {
     @PUT("api/users/data/changeUserData")
     Call<UserData_Model> changeData_Post(@Body UserData_Model UserData);
 
-    @POST("api/admin/showData")
-    Call<List<Device_Model>> getDevices(@Body Device_Model DeviceData);
+    @GET("api/admin/showDevices")
+    Call<List<Device_Model  >> getDevices();
 //
 //    @POST("api/users/data/")
 //    Call<Led_Model> ledPost(@Body Led_Model Led);

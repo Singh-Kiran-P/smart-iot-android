@@ -1,4 +1,4 @@
-package com.example.singhkiran.smartiot.UI.UserNormal.Iot_Devices;
+package com.example.singhkiran.smartiot.UI.UserNormal.Acticitys.Iot_Devices;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,8 +10,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.singhkiran.smartiot.JsonRequests.Iot.Led.Led_Request;
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;

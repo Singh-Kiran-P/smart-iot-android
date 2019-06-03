@@ -1,21 +1,21 @@
 package com.example.singhkiran.smartiot.JsonRequests.AdminPanel.Devices;
 
 public class Device_Model {
-    private String Name;
+    private String name;
     private String id;
     private String message;
     private String status;
 
     public Device_Model(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        name = name;
     }
 
     public String getId() {

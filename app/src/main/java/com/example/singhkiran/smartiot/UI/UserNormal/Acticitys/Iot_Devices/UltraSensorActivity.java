@@ -1,4 +1,4 @@
-package com.example.singhkiran.smartiot.UI.UserNormal.Iot_Devices;
+package com.example.singhkiran.smartiot.UI.UserNormal.Acticitys.Iot_Devices;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;

@@ -13,6 +13,12 @@
         app:showAsAction="never"
         android:onClick="showPolicy"/>
     <item
+        android:id="@+id/action_RegisterMobile"
+        android:orderInCategory="100"
+        android:title="@string/action_RegisterMobile"
+        app:showAsAction="never"
+        android:onClick="Register"/>
+    <item
         android:id="@+id/action_logout"
         android:orderInCategory="100"
         android:title="@string/action_logout"

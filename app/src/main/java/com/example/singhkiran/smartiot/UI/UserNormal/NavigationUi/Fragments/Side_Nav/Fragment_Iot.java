@@ -17,9 +17,9 @@ import android.widget.Toast;
 
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
 import com.example.singhkiran.smartiot.R;
-import com.example.singhkiran.smartiot.UI.UserNormal.Iot_Devices.LedActivity;
-import com.example.singhkiran.smartiot.UI.UserNormal.Iot_Devices.Temp_HumidityActivity;
-import com.example.singhkiran.smartiot.UI.UserNormal.Iot_Devices.UltraSensorActivity;
+import com.example.singhkiran.smartiot.UI.UserNormal.Acticitys.Iot_Devices.LedActivity;
+import com.example.singhkiran.smartiot.UI.UserNormal.Acticitys.Iot_Devices.Temp_HumidityActivity;
+import com.example.singhkiran.smartiot.UI.UserNormal.Acticitys.Iot_Devices.UltraSensorActivity;
 
 
 public class Fragment_Iot extends Fragment {

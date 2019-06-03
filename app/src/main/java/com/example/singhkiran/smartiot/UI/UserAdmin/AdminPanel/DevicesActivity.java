@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.singhkiran.smartiot.JsonRequests.AdminPanel.Devices.Device_Request;
 import com.example.singhkiran.smartiot.R;
 
 public class DevicesActivity extends AppCompatActivity {
@@ -15,10 +16,9 @@ public class DevicesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_activity_devices);
+        new Device_Request(this);
 
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,R.layout.admin_devices_listview_row, listArray);
-        ListView mlistView = (ListView)findViewById(R.id.list);
-        mlistView.setAdapter(adapter);
+
     }
 }
