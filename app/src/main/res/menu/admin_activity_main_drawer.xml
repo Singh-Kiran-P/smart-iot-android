@@ -9,29 +9,28 @@
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_account_circle"
             android:title="Profile" />
+    </group>
+    <group android:checkableBehavior="all" android:id="@+id/dss">
         <item
             android:id="@+id/nav_iot"
             android:icon="@drawable/ic_menu_manage"
             android:title="Iot" />
+    </group>
+    <group android:checkableBehavior="all" android:id="@+id/dsss">
         <item
             android:id="@+id/nav_adminPanel"
             android:icon="@drawable/ic_menu_send"
             android:title="Admin Panel" />
-        <item
-            android:id="@+id/nav_logss"
 
-            android:title="" />
-
-
-        <item
-            android:id="@+id/nav_share"
-            android:icon="@drawable/ic_menu_share"
-            android:title="Share" />
-        <item
-            android:id="@+id/nav_random"
-            android:icon="@android:drawable/alert_dark_frame"
-            android:title="" />
 
     </group>
+
+    <group android:checkableBehavior="all" android:id="@+id/dssssqdqsdss">
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@android:drawable/checkbox_off_background"
+            android:title="Logout" />
+    </group>
+
 
 </menu>

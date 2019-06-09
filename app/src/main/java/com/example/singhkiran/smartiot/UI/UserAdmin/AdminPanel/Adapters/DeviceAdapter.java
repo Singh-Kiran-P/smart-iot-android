@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.singhkiran.smartiot.JsonRequests.AdminPanel.Devices.Device_Model;
+import com.example.singhkiran.smartiot.JsonRequests.Admin.AdminPanel.Devices.Device_Model;
 import com.example.singhkiran.smartiot.R;
 
 import java.util.List;
@@ -24,7 +24,7 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.ViewHolder
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.recycler_view_item,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.admin_devices_recycler_view_item,parent,false);
         ViewHolder holder = new ViewHolder(v);
         return holder;
     }

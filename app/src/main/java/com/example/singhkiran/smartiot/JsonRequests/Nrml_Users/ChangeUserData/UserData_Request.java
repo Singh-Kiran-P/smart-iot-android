@@ -1,10 +1,9 @@
-package com.example.singhkiran.smartiot.JsonRequests.ChangeUserData;
+package com.example.singhkiran.smartiot.JsonRequests.Nrml_Users.ChangeUserData;
 
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.singhkiran.smartiot.JsonRequests.Iot.Led.Led_Model;
 import com.example.singhkiran.smartiot.JsonRequests.SmartiotAPI;
 import com.example.singhkiran.smartiot.JsonRequests.retrofit2_config;
 

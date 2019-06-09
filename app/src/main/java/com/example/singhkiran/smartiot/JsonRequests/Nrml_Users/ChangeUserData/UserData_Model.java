@@ -1,4 +1,4 @@
-package com.example.singhkiran.smartiot.JsonRequests.ChangeUserData;
+package com.example.singhkiran.smartiot.JsonRequests.Nrml_Users.ChangeUserData;
 
 public class UserData_Model {
     private Integer status;

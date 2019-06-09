@@ -1,4 +1,4 @@
-package com.example.singhkiran.smartiot.JsonRequests.AdminPanel.Devices;
+package com.example.singhkiran.smartiot.JsonRequests.Admin.AdminPanel.Devices;
 
 public class Device_Model {
     private String name;

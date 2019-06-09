@@ -1,10 +1,10 @@
 package com.example.singhkiran.smartiot.JsonRequests;
 
-import com.example.singhkiran.smartiot.JsonRequests.AdminPanel.Devices.DeviceWrapper;
-import com.example.singhkiran.smartiot.JsonRequests.AdminPanel.Devices.Device_Model;
-import com.example.singhkiran.smartiot.JsonRequests.ChangeUserData.UserData_Model;
+import com.example.singhkiran.smartiot.JsonRequests.Admin.AdminPanel.Devices.Device_Model;
+import com.example.singhkiran.smartiot.JsonRequests.Nrml_Users.ChangeUserData.UserData_Model;
 import com.example.singhkiran.smartiot.JsonRequests.Iot.Led.Led_Model;
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
+import com.example.singhkiran.smartiot.JsonRequests.Nrml_Users.ShowLogs.ShowLogs_Model;
 import com.example.singhkiran.smartiot.JsonRequests.SignUp.Register_Model;
 
 import java.util.List;
@@ -29,7 +29,13 @@ public interface SmartiotAPI {
     Call<UserData_Model> changeData_Post(@Body UserData_Model UserData);
 
     @GET("api/admin/showDevices")
-    Call<List<Device_Model  >> getDevices();
+    Call<List<Device_Model>> getDevices();
+
+    @POST("api/users/data/showLogs")
+   Call<List<ShowLogs_Model>> getUsersLogs(@Body ShowLogs_Model showLogs);
+
+
+
 //
 //    @POST("api/users/data/")
 //    Call<Led_Model> ledPost(@Body Led_Model Led);

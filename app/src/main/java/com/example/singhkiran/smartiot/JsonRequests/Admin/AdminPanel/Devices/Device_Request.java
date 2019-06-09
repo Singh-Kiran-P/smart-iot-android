@@ -1,34 +1,24 @@
-package com.example.singhkiran.smartiot.JsonRequests.AdminPanel.Devices;
+package com.example.singhkiran.smartiot.JsonRequests.Admin.AdminPanel.Devices;
 
 import android.app.Activity;
-import android.content.Context;
-import android.util.Log;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.singhkiran.smartiot.JsonRequests.API_Info.API_Server;
-import com.example.singhkiran.smartiot.JsonRequests.Iot.Led.Led_Model;
 import com.example.singhkiran.smartiot.JsonRequests.SmartiotAPI;
 import com.example.singhkiran.smartiot.JsonRequests.retrofit2_config;
 import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.UI.UserAdmin.AdminPanel.Adapters.DeviceAdapter;
-import com.example.singhkiran.smartiot.UI.UserAdmin.AdminPanel.DevicesActivity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 
-import java.io.IOError;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Device_Request {
     API_Server api_server = new API_Server();
@@ -56,7 +46,7 @@ public class Device_Request {
 
     private void createRequest() {
 
-        recyclerView = activity.findViewById(R.id.recycler_devices);
+        recyclerView = activity.findViewById(R.id.admin_recycler_devices);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager manager = new LinearLayoutManager(activity);
         manager.setOrientation(LinearLayoutManager.VERTICAL);

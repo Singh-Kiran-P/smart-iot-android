@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.singhkiran.smartiot.JsonRequests.ChangeUserData.UserData_Request;
+import com.example.singhkiran.smartiot.JsonRequests.Nrml_Users.ChangeUserData.UserData_Request;
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
 import com.example.singhkiran.smartiot.R;
 
@@ -41,11 +41,11 @@ public class Fragment_Profile extends Fragment {
     Intent intent;
     Login_Model login_response;
     TextView name;
-    EditText username;
+    TextView username;
     EditText password;
     EditText email;
-    EditText role;
-    EditText message;
+    TextView role;
+    TextView message;
 
     public void showinfo() {
 
@@ -80,12 +80,25 @@ public class Fragment_Profile extends Fragment {
 
     private void init_OnCliks(View view) {
 
+
 //        edit user info Profile page
         final ImageView loginButton = view.findViewById(R.id.click_Edit);
-        loginButton.setOnClickListener(v ->
-                new UserData_Request(login_response.getId(), name.getText().toString(), email.getText().toString(), password.getText().toString(), getContext()));
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (password.getText().toString().equals("")) {
+                    Toast.makeText(getContext(), "Please enter your old password or new one", Toast.LENGTH_SHORT).show();
+
+                }else {
+                    new UserData_Request(login_response.getId(), name.getText().toString(), email.getText().toString(), password.getText().toString(), getContext());
+
+                }
+            }
+        });
     }
 
-
 }
+
+
+
 

@@ -118,6 +118,9 @@ public class AdminLoadAppActivity extends AppCompatActivity implements Navigatio
         }else if (id == R.id.nav_adminPanel) {
             fragment = new Fragment_AdminPanel();
 
+        }else if (id == R.id.nav_logout) {
+            Intent login = new Intent(this, LoginActivity.class);
+            startActivity(login);
         }
 
         if (fragment != null) {

@@ -43,6 +43,10 @@ public class Register_Request {
         Password = password.getText().toString();
         firebase_token = MyFirebase.Refreshed_Token;
 
+        if (firebase_token == null){
+            firebase_token ="";
+        }
+
 
         Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
         Matcher m = p.matcher(Email);
