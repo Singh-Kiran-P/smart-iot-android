@@ -11,7 +11,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/nrml_recycler_Logs"
         android:layout_width="match_parent"
-        android:layout_height="606dp"
+        android:layout_height="match_parent"
         android:layout_marginBottom="10dp"
         android:scrollbars="vertical"
         tools:itemCount="5"

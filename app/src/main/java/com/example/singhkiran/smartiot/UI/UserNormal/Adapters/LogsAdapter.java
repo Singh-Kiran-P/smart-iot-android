@@ -37,6 +37,7 @@ public class LogsAdapter extends RecyclerView.Adapter<LogsAdapter.ViewHolder> {
         holder.date.setText(list.get(position).getCreatedOn());
         holder.perms.setText(list.get(position).getPermission());
         holder.value.setText(list.get(position).getValue());
+        holder.eindpoint.setText(list.get(position).getEindpoint());
 
     }
 
@@ -52,6 +53,7 @@ public class LogsAdapter extends RecyclerView.Adapter<LogsAdapter.ViewHolder> {
         TextView date;
         TextView perms;
         TextView value;
+        TextView eindpoint;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -60,6 +62,7 @@ public class LogsAdapter extends RecyclerView.Adapter<LogsAdapter.ViewHolder> {
             date = (TextView) itemView.findViewById(R.id.cardLogs_date);
             perms = (TextView) itemView.findViewById(R.id.card_name);
             value = (TextView) itemView.findViewById(R.id.cardValue);
+            eindpoint = (TextView) itemView.findViewById(R.id.cardEndpoint);
 
         }
     }

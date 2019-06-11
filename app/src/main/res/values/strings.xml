@@ -31,4 +31,11 @@
     <string name="Welcom">Welcom To SmartIOT</string>
     <string name="action_policy">Privacy Policy</string>
     <string name="action_RegisterMobile">Register Mobile</string>
+    <string name="action_explore">Go</string>
+    <string name="card_title">Lights</string>
+    <string name="card_content">Controle Lights from your rooms</string>
+    <string name="card_Sensor">Proximity sensor</string>
+    <string name="card_temp">Temperature</string>
+    <string name="card_stitle">Fans</string>
+    <string name="card_contsent">Control fans</string>
 </resources>

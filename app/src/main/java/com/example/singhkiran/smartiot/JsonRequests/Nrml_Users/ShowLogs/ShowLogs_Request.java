@@ -82,6 +82,7 @@ public class ShowLogs_Request {
                         model.setUserId("");
                         model.setMessage("");
                         model.setStatus("");
+//                        model.setEindpoint("");
                         logs.add(model);
                         adapter = new LogsAdapter(activity, logs);
 
@@ -94,7 +95,7 @@ public class ShowLogs_Request {
 
             @Override
             public void onFailure(Call<List<ShowLogs_Model>> call, Throwable t) {
-
+                Toast.makeText(activity , t.toString(), Toast.LENGTH_SHORT).show();
             }
         });
 //        });

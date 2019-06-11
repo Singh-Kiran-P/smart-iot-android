@@ -117,7 +117,12 @@ public class NormalLoadAppActivity extends AppCompatActivity implements Navigati
             fragment = new Fragment_Logs();
 
         } else if (id == R.id.nav_share) {
-            fragment = new Fragment_Mainpage();
+            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+            sharingIntent.setType("text/plain");
+            String shareBody = "Download the best IOT app From -> http://smartiot.viewdns.net:8080/release/smartiot.apk";
+            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Download the best IOT app From -> http://smart-iot.ga/");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+            startActivity(Intent.createChooser(sharingIntent, "Smart IOT"));
 
         } else if (id == R.id.nav_send) {
 

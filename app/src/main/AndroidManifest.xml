@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".UI.UserNormal.Acticitys.Iot_Devices.FansActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
         <activity android:name=".UI.UserAdmin.AdminPanel.LogsActivity" />
         <activity android:name=".UI.UserAdmin.AdminPanel.DevicesActivity" />
         <activity

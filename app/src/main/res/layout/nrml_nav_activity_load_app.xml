@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/transparent_Black"
+        android:background="@color/nav_grey"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nrml_nav_header_main"
         app:itemIconTint="@drawable/selector_navbar_icon"

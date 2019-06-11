@@ -8,39 +8,15 @@
     android:orientation="vertical"
     android:background="@color/nav_grey">
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switchButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:gravity="center"
-        android:text="Room2              "
-        android:textColor="@color/white"
-        android:textOff="OFF"
-        android:textOn="ON"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:thumb="@drawable/sw_thumb"
-        app:showText="true"
 
-        app:track="@drawable/sw_track" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="106dp"
-        android:layout_height="77dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="100dp"
-        android:layout_toRightOf="@id/switchButton" />
 
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switchButton"
+        android:id="@+id/switchButton_FAN1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:gravity="center"
-        android:text="Room1              "
+        android:text="Fan1                    "
         android:textColor="@color/white"
         android:textOff="OFF"
         android:textOn="ON"
@@ -51,7 +27,7 @@
         app:track="@drawable/sw_track" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView_FAN"
         android:layout_width="106dp"
         android:layout_height="77dp"
         android:layout_alignParentRight="true"

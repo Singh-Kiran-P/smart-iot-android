@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
 import com.example.singhkiran.smartiot.R;
+import com.example.singhkiran.smartiot.UI.UserNormal.Acticitys.Iot_Devices.FansActivity;
 import com.example.singhkiran.smartiot.UI.UserNormal.Acticitys.Iot_Devices.LedActivity;
 import com.example.singhkiran.smartiot.UI.UserNormal.Acticitys.Iot_Devices.Temp_HumidityActivity;
 import com.example.singhkiran.smartiot.UI.UserNormal.Acticitys.Iot_Devices.UltraSensorActivity;
@@ -28,7 +29,7 @@ public class Fragment_Iot extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.nrml_fragment_iot, null);
+        return inflater.inflate(R.layout.nrml_fragment_iot2, null);
     }
 
     @Override
@@ -36,11 +37,12 @@ public class Fragment_Iot extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         mainGrid = (GridLayout) getActivity().findViewById(R.id.mainGrid);
-
+        initClicks();
         //Set Event
-        setSingleEvent(mainGrid);
         //setToggleEvent(mainGrid);
     }
+
+
 
     private void setToggleEvent(GridLayout mainGrid) {
         //Loop all child item of Main Grid
@@ -65,36 +67,23 @@ public class Fragment_Iot extends Fragment {
         }
     }
 
-    private void setSingleEvent(GridLayout mainGrid) {
-//        //Loop all child item of Main Grid
-//        for (int i = 0; i < mainGrid.getChildCount(); i++) {
-//            //You can see , all child item is CardView , so we just cast object to CardView
-//            CardView cardView = (CardView) mainGrid.getChildAt(i);
-//            final int finalI = i;
-//            cardView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent intent = getActivity().getIntent();
-//                    Login_Model login_response = (Login_Model) intent.getSerializableExtra("info");
-//                    Intent intent2 = new Intent(getContext(), LedActivity.class);
-//                    intent2.putExtra("info",login_response);
-//                    startActivity(intent2);
-//
-//                }
-//            });
-        CardView cardViewLed = (CardView) mainGrid.getChildAt(0);
-        cardViewLed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = getActivity().getIntent();
-                Login_Model login_response = (Login_Model) intent.getSerializableExtra("info");
-                Intent intent2 = new Intent(getContext(), LedActivity.class);
-                intent2.putExtra("info", login_response);
-                startActivity(intent2);
-            }
-        });
-        CardView cardViewUltra = (CardView) mainGrid.getChildAt(1);
-        cardViewUltra.setOnClickListener(new View.OnClickListener() {
+    private void initClicks() {
+
+            CardView onlick_Lights = getView().findViewById(R.id.onlick_Lights);
+            onlick_Lights.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = getActivity().getIntent();
+                    Login_Model login_response = (Login_Model) intent.getSerializableExtra("info");
+                    Intent intent2 = new Intent(getContext(), LedActivity.class);
+                    intent2.putExtra("info",login_response);
+                    startActivity(intent2);
+
+                }
+            });
+
+        CardView onlick_ProximitySensor = getView().findViewById(R.id.onlick_ProximitySensor);
+        onlick_ProximitySensor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = getActivity().getIntent();
@@ -104,13 +93,24 @@ public class Fragment_Iot extends Fragment {
                 startActivity(intent2);
             }
         });
-        CardView cardViewTemp = (CardView) mainGrid.getChildAt(2);
-        cardViewTemp.setOnClickListener(new View.OnClickListener() {
+        CardView onlick_Temp = getView().findViewById(R.id.onlick_Temp);
+        onlick_Temp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = getActivity().getIntent();
                 Login_Model login_response = (Login_Model) intent.getSerializableExtra("info");
                 Intent intent2 = new Intent(getContext(), Temp_HumidityActivity.class);
+                intent2.putExtra("info", login_response);
+                startActivity(intent2);
+            }
+        });
+        CardView onlick_fan = getView().findViewById(R.id.onlick_fan);
+        onlick_fan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = getActivity().getIntent();
+                Login_Model login_response = (Login_Model) intent.getSerializableExtra("info");
+                Intent intent2 = new Intent(getContext(), FansActivity.class);
                 intent2.putExtra("info", login_response);
                 startActivity(intent2);
             }

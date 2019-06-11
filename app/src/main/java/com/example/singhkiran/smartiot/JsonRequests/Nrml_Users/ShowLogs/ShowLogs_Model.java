@@ -8,6 +8,8 @@ public class ShowLogs_Model {
     private String Permission;
     private String message;
     private String status;
+    private String Eindpoint;
+
 
     public String getMessage() {
         return message;
@@ -71,4 +73,12 @@ public class ShowLogs_Model {
     public void setPermission(String permission) {
         Permission = permission;
     }
+    public String getEindpoint() {
+        return Eindpoint;
+    }
+
+    public void setEindpoint(String eindpoint) {
+        Eindpoint = eindpoint;
+    }
+
 }
