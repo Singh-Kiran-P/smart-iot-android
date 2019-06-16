@@ -11,6 +11,7 @@ package com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Sid
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
+        import android.view.WindowManager;
         import android.widget.Button;
         import android.widget.EditText;
         import android.widget.ImageView;
@@ -29,6 +30,7 @@ public class Fragment_Feedback extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.nrml_fragment_feedback, null);
+//        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
 
     @Override

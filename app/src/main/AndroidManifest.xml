@@ -15,7 +15,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".UI.UserNormal.Acticitys.Iot_Devices.FansActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity android:name=".UI.UserAdmin.AdminPanel.LogsActivity" />
         <activity android:name=".UI.UserAdmin.AdminPanel.DevicesActivity" />
         <activity
@@ -28,8 +28,12 @@
         <activity
             android:name=".UI.UserNormal.Acticitys.Iot_Devices.LedActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity android:name=".UI.UserNormal.NavigationUi.NormalLoadAppActivity" />
-        <activity android:name=".UI.Auth.LoginActivity">
+        <activity
+            android:name=".UI.UserNormal.NavigationUi.NormalLoadAppActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".UI.Auth.LoginActivity"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,10 +43,14 @@
         <activity
             android:name=".UI.Auth.SignupActivity"
             android:label="@string/title_activity_signup"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".JsonRequests.Login.Login_Request" />
         <activity android:name=".UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Profile" />
-        <activity android:name=".UI.UserAdmin.NavigationUi.AdminLoadAppActivity" />
+        <activity
+            android:name=".UI.UserAdmin.NavigationUi.AdminLoadAppActivity"
+            android:windowSoftInputMode="adjustResize" />
 
         <service android:name=".Firebase.MyFirebase">
             <intent-filter>
