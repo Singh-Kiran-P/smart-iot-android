@@ -3,6 +3,7 @@ package com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi;
 import android.content.Intent;
 import android.net.Uri;
 
+import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Feedback;
 import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Logs;
 import com.google.android.material.navigation.NavigationView;
 import androidx.fragment.app.Fragment;
@@ -124,7 +125,8 @@ public class NormalLoadAppActivity extends AppCompatActivity implements Navigati
             sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
             startActivity(Intent.createChooser(sharingIntent, "Smart IOT"));
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_Feedback) {
+            fragment = new Fragment_Feedback();
 
         }
 

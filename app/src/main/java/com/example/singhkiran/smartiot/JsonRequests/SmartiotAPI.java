@@ -4,6 +4,7 @@ import com.example.singhkiran.smartiot.JsonRequests.Admin.AdminPanel.Devices.Dev
 import com.example.singhkiran.smartiot.JsonRequests.Nrml_Users.ChangeUserData.UserData_Model;
 import com.example.singhkiran.smartiot.JsonRequests.Iot.Led.Led_Model;
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
+import com.example.singhkiran.smartiot.JsonRequests.Nrml_Users.SendFeedback.SendFeedback_Model;
 import com.example.singhkiran.smartiot.JsonRequests.Nrml_Users.ShowLogs.ShowLogs_Model;
 import com.example.singhkiran.smartiot.JsonRequests.SignUp.Register_Model;
 
@@ -25,14 +26,17 @@ public interface SmartiotAPI {
     @POST("api/iot/led")
     Call<Led_Model> ledPost(@Body Led_Model Led);
 
-    @PUT("api/users/data/changeUserData")
-    Call<UserData_Model> changeData_Post(@Body UserData_Model UserData);
-
     @GET("api/admin/showDevices")
     Call<List<Device_Model>> getDevices();
 
+    @PUT("api/users/data/changeUserData")
+    Call<UserData_Model> changeData_Post(@Body UserData_Model UserData);
+
     @POST("api/users/data/showLogs")
-   Call<List<ShowLogs_Model>> getUsersLogs(@Body ShowLogs_Model showLogs);
+    Call<List<ShowLogs_Model>> getUsersLogs(@Body ShowLogs_Model showLogs);
+
+    @POST("api/users/data/sendFeedback")
+    Call<SendFeedback_Model> sendUserFeedback(@Body SendFeedback_Model SendFeedback);
 
 
 
