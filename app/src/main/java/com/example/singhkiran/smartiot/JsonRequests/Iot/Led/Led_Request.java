@@ -1,12 +1,18 @@
 package com.example.singhkiran.smartiot.JsonRequests.Iot.Led;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.appcompat.widget.SwitchCompat;
 
 import com.example.singhkiran.smartiot.JsonRequests.API_Info.API_Server;
 import com.example.singhkiran.smartiot.JsonRequests.SmartiotAPI;
 import com.example.singhkiran.smartiot.JsonRequests.retrofit2_config;
+import com.example.singhkiran.smartiot.R;
+import com.example.singhkiran.smartiot.UI.UserNormal.Acticitys.Iot_Devices.FansActivity;
 
 import java.io.IOError;
 
@@ -19,8 +25,12 @@ public class Led_Request {
     Context context;
     private SmartiotAPI smartiotAPI;
     private Led_Model led_model;
+    SwitchCompat switchFan1,switchFan2;
+    ImageView imageView,imageView2;
 
-    public Led_Request(String action, String userId, String endpoint, Context context) {
+
+
+    public Led_Request(String action, String userId, String endpoint, Context context)  {
         this.context = context;
         led_model = new Led_Model(action, userId, endpoint,"");
         MakeRequest(context);
@@ -35,7 +45,7 @@ public class Led_Request {
 
     }
 
-    private void createRequest() {
+    private void   createRequest() {
 
         Call<Led_Model> call = smartiotAPI.ledPost(led_model);
 
@@ -54,6 +64,7 @@ public class Led_Request {
                 try {
                     if (postResponse.getStatus().equals("403")) {
                         Toast.makeText(context, Message, Toast.LENGTH_SHORT).show();
+
                     }
                     if (postResponse.getStatus().equals("200")) {
                         Toast.makeText(context, Message, Toast.LENGTH_SHORT).show();

@@ -56,7 +56,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/card_content"
-                            android:textColor="@color/white" />
+                            android:textColor="@android:color/darker_gray"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -81,22 +81,24 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/nav_grey_light"
                         android:orientation="vertical"
                         android:padding="16dp">
 
                         <TextView
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
                             android:text="@string/card_Sensor"
-                            android:textColor="#000"
+                            android:textColor="@color/white"
                             android:textSize="18sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/card_content"
-                            android:textColor="#555" />
+                            android:text="@string/card_contenesst"
+                            android:textColor="@android:color/darker_gray" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -126,7 +128,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:orientation="vertical"                        android:background="@color/nav_grey_light"
+
                         android:padding="16dp">
 
                         <TextView
@@ -134,14 +137,14 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
                             android:text="@string/card_temp"
-                            android:textColor="#000"
+                            android:textColor="@color/white"
                             android:textSize="18sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/card_content"
-                            android:textColor="#555" />
+                            android:textColor="@android:color/darker_gray"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -173,7 +176,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:orientation="vertical"                        android:background="@color/nav_grey_light"
+
                         android:padding="16dp">
 
                         <TextView
@@ -181,14 +185,14 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
                             android:text="@string/card_stitle"
-                            android:textColor="#000"
+                            android:textColor="@color/white"
                             android:textSize="18sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/card_contsent"
-                            android:textColor="#555" />
+                            android:textColor="@android:color/darker_gray"/>
                     </LinearLayout>
 
                     <LinearLayout

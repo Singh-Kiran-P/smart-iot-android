@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".UI.UserAdmin.AdminPanel.RequestsActivity"></activity>
         <activity
             android:name=".UI.UserNormal.Acticitys.Iot_Devices.FansActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
@@ -44,7 +45,6 @@
             android:name=".UI.Auth.SignupActivity"
             android:label="@string/title_activity_signup"
             android:theme="@style/AppTheme"
-
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".JsonRequests.Login.Login_Request" />
         <activity android:name=".UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Profile" />

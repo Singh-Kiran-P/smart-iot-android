@@ -175,6 +175,7 @@ android:fillViewport="true">
                 android:background="@color/transparent"
                 android:fontFamily="sans-serif"
                 android:text="@string/forget_password"
+                android:onClick="forgetpass"
                 android:textAllCaps="true"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:textColor="@color/white" />

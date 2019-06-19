@@ -4,6 +4,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -101,6 +102,14 @@ public class LoginActivity extends AppCompatActivity {
         //open signup page
         Intent intent = new Intent(this, SignupActivity.class);
         startActivity(intent);
+    }
+
+    public void forgetpass(View view) {
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://smartiot.viewdns.net:8080/api/users/reset_password")));
+        } catch (Exception e) {
+
+        }
     }
 }
 

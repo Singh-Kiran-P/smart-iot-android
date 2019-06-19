@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
 import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.UI.UserAdmin.AdminPanel.DevicesActivity;
+import com.example.singhkiran.smartiot.UI.UserAdmin.AdminPanel.RequestsActivity;
 
 
 public class Fragment_AdminPanel extends Fragment {
@@ -61,6 +62,11 @@ public class Fragment_AdminPanel extends Fragment {
         LinearLayout request =  getActivity().findViewById(R.id.click_requests);
         request.setOnClickListener(v -> {
             Toast.makeText(getContext(), "Profile edit", Toast.LENGTH_SHORT).show();
+            Intent intent = getActivity().getIntent();
+            Login_Model login_response = (Login_Model) intent.getSerializableExtra("info");
+            Intent intent2 = new Intent(getContext(), RequestsActivity.class);
+            intent2.putExtra("info", login_response);
+            startActivity(intent2);
         });
 
         LinearLayout users =  getActivity().findViewById(R.id.click_showUsers);

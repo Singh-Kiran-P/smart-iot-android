@@ -1,9 +1,11 @@
 package com.example.singhkiran.smartiot.JsonRequests;
 
 import com.example.singhkiran.smartiot.JsonRequests.Admin.AdminPanel.Devices.Device_Model;
+import com.example.singhkiran.smartiot.JsonRequests.Admin.AdminPanel.PermissionRequest.Permission_Model;
 import com.example.singhkiran.smartiot.JsonRequests.Nrml_Users.ChangeUserData.UserData_Model;
 import com.example.singhkiran.smartiot.JsonRequests.Iot.Led.Led_Model;
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
+import com.example.singhkiran.smartiot.JsonRequests.Nrml_Users.PermissionRequest.ChangePermission_Model;
 import com.example.singhkiran.smartiot.JsonRequests.Nrml_Users.SendFeedback.SendFeedback_Model;
 import com.example.singhkiran.smartiot.JsonRequests.Nrml_Users.ShowLogs.ShowLogs_Model;
 import com.example.singhkiran.smartiot.JsonRequests.SignUp.Register_Model;
@@ -29,6 +31,9 @@ public interface SmartiotAPI {
     @GET("api/admin/showDevices")
     Call<List<Device_Model>> getDevices();
 
+    @GET("api/admin/showPermissionRequests")
+    Call<List<Permission_Model>> getRequests();
+
     @PUT("api/users/data/changeUserData")
     Call<UserData_Model> changeData_Post(@Body UserData_Model UserData);
 
@@ -37,6 +42,9 @@ public interface SmartiotAPI {
 
     @POST("api/users/data/sendFeedback")
     Call<SendFeedback_Model> sendUserFeedback(@Body SendFeedback_Model SendFeedback);
+
+    @POST("api/users/data/request_permission")
+    Call<ChangePermission_Model> changePermissionUser(@Body ChangePermission_Model changePermission_model);
 
 
 

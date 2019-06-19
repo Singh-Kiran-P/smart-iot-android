@@ -38,4 +38,6 @@
     <string name="card_temp">Temperature</string>
     <string name="card_stitle">Fans</string>
     <string name="card_contsent">Control fans</string>
+    <string name="card_contenst">Check the distance between objects</string>
+    <string name="card_contenesst">Check Temperature and humidity</string>
 </resources>
