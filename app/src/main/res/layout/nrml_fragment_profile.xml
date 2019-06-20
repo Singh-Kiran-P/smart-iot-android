@@ -39,7 +39,7 @@
                         android:background="@drawable/circle"
                         android:padding="3dp"
                         android:scaleType="centerInside"
-                        app:srcCompat="@drawable/ic_twitter" />
+                        app:srcCompat="@drawable/ic_doctor" />
 
                 </RelativeLayout>
 

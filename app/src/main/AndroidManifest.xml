@@ -13,12 +13,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".UI.UserAdmin.AdminPanel.RequestsActivity"></activity>
+        <activity
+            android:name=".UI.UserAdmin.AdminPanel.FeedbackActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"></activity>
+        <activity
+            android:name=".UI.UserAdmin.AdminPanel.RequestsActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
             android:name=".UI.UserNormal.Acticitys.Iot_Devices.FansActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity android:name=".UI.UserAdmin.AdminPanel.LogsActivity" />
-        <activity android:name=".UI.UserAdmin.AdminPanel.DevicesActivity" />
+        <activity
+            android:name=".UI.UserAdmin.AdminPanel.LogsActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".UI.UserAdmin.AdminPanel.DevicesActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
             android:name=".UI.UserNormal.Acticitys.Iot_Devices.Temp_HumidityActivity"
             android:theme="@style/Theme.AppCompat" />

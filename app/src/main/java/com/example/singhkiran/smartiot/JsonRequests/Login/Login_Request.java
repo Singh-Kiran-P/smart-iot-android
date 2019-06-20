@@ -43,10 +43,12 @@ public class Login_Request {
             if (username_result.equals("")) {
                 Toast.makeText(context, "Server changed to => " + api_server.getServer_url(), Toast.LENGTH_SHORT).show();
                 Log.d("Server_url", "login: " + api_server.getServer_url());
+                return;
             }
             if (!username_result.equals("")) {
-                api_server.setServer_url("http://" + username_result);
+                api_server.setServer_url("http://" + username_result+":8080");
                 Toast.makeText(context, "Server changed to => " + api_server.getServer_url(), Toast.LENGTH_SHORT).show();
+                return;
 
             }
         }

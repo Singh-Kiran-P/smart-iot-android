@@ -1,8 +1,16 @@
 package com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 
+import com.example.singhkiran.smartiot.JsonRequests.Admin.AdminPanel.PermissionRequest.Permission_Request;
+import com.example.singhkiran.smartiot.JsonRequests.Iot.Led.Kill_Request;
+import com.example.singhkiran.smartiot.JsonRequests.Nrml_Users.ChangeUserData.UserData_Request;
 import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Feedback;
 import com.example.singhkiran.smartiot.UI.UserNormal.NavigationUi.Fragments.Side_Nav.Fragment_Logs;
 import com.google.android.material.navigation.NavigationView;
@@ -147,6 +155,7 @@ public class NormalLoadAppActivity extends AppCompatActivity implements Navigati
     }
 
     public void logout(MenuItem item) {
+        new Kill_Request(this);
         Intent login = new Intent(this, LoginActivity.class);
         startActivity(login);
     }
@@ -173,6 +182,45 @@ public class NormalLoadAppActivity extends AppCompatActivity implements Navigati
     }
 
     public void Register(MenuItem item) {
-        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();
+        SharedPreferences sharedPref = this.getSharedPreferences("fbc", Context.MODE_PRIVATE);
+        String token = sharedPref.getString("fbv", "");
+        Intent intent = getIntent();
+        Login_Model login_response = (Login_Model) intent.getSerializableExtra("info");
+
+
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Register mobile?");
+        builder.setIcon(R.drawable.ic_quesetion);
+
+        builder.setPositiveButton("YES", new Dialog.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                new UserData_Request(login_response.getId(),token,NormalLoadAppActivity.this);
+                dialog.cancel();
+            }
+
+        });
+
+        builder.setNegativeButton("NO ", new Dialog.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                new UserData_Request(login_response.getId(),"",NormalLoadAppActivity.this);
+//                Toast.makeText(NormalLoadAppActivity.this, "This mobile is not longer registered to you account", Toast.LENGTH_SHORT).show();
+                dialog.cancel();
+
+            }
+
+        });
+
+        builder.show();
+        
+        
+        
+//        Toast.makeText(this, token, Toast.LENGTH_SHORT).show();
     }
 }

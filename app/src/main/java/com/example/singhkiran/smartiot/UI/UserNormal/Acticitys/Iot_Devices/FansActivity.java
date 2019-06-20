@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -38,11 +39,26 @@ public class FansActivity extends AppCompatActivity {
 
         switchFan1 = findViewById(R.id.switchButton_FAN1);
         imageView = findViewById(R.id.imageView_FAN);
-        imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_ledoff));
+        imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_fan));
 
         switchFan2 = findViewById(R.id.switchButton_FAN2);
         imageView2 = findViewById(R.id.imageView_FAN2);
-        imageView2.setImageDrawable(getResources().getDrawable(R.drawable.ic_ledoff));
+        imageView2.setImageDrawable(getResources().getDrawable(R.drawable.ic_fan));
+        SharedPreferences prefss = getSharedPreferences("acti", MODE_PRIVATE);
+        boolean FAn01 = prefss.getBoolean("fan01", false);
+        boolean fanman = prefss.getBoolean("fan_main", false);
+
+        if (fanman){
+            switchFan2.setChecked(fanman);
+            imageView2.setImageDrawable(getResources().getDrawable(R.drawable.ic_fan1));
+
+        }
+        if (FAn01){
+            switchFan1.setChecked(FAn01);
+            imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_fan1));
+
+        }
+
 
 
         switchFan1.setOnClickListener(new View.OnClickListener() {
@@ -50,8 +66,10 @@ public class FansActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (switchFan1.isChecked()) {
-                    imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_ledon));
-
+                    imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_fan1));
+                    SharedPreferences.Editor editor = getSharedPreferences("acti", MODE_PRIVATE).edit();
+                    editor.putBoolean("fan01", true);
+                    editor.apply();
                     Intent intent = getIntent();
                     Login_Model login_response = (Login_Model) intent.getSerializableExtra("info");
                     String userId = login_response.getId();
@@ -60,8 +78,10 @@ public class FansActivity extends AppCompatActivity {
 
 
                 } else {
-                    imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_ledoff));
-
+                    imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_fan));
+                    SharedPreferences.Editor editor = getSharedPreferences("acti", MODE_PRIVATE).edit();
+                    editor.putBoolean("fan01", false);
+                    editor.apply();
                     Intent intent = getIntent();
                     Login_Model login_response = (Login_Model) intent.getSerializableExtra("info");
                     String userId = login_response.getId();
@@ -78,8 +98,10 @@ public class FansActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (switchFan2.isChecked()) {
-                    imageView2.setImageDrawable(getResources().getDrawable(R.drawable.ic_ledon));
-
+                    imageView2.setImageDrawable(getResources().getDrawable(R.drawable.ic_fan1));
+                    SharedPreferences.Editor editor = getSharedPreferences("acti", MODE_PRIVATE).edit();
+                    editor.putBoolean("fan_main", true);
+                    editor.apply();
                     Intent intent = getIntent();
                     Login_Model login_response = (Login_Model) intent.getSerializableExtra("info");
                     String userId = login_response.getId();
@@ -88,8 +110,10 @@ public class FansActivity extends AppCompatActivity {
 
 
                 } else {
-                    imageView2.setImageDrawable(getResources().getDrawable(R.drawable.ic_ledoff));
-
+                    imageView2.setImageDrawable(getResources().getDrawable(R.drawable.ic_fan));
+                    SharedPreferences.Editor editor = getSharedPreferences("acti", MODE_PRIVATE).edit();
+                    editor.putBoolean("fan_main", false);
+                    editor.apply();
                     Intent intent = getIntent();
                     Login_Model login_response = (Login_Model) intent.getSerializableExtra("info");
                     String userId = login_response.getId();
@@ -168,6 +192,11 @@ public class FansActivity extends AppCompatActivity {
         });
 
         builder.show();
+    }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+//        Toast.makeText(this, "back", Toast.LENGTH_SHORT).show();
     }
 }
 

@@ -11,6 +11,10 @@ public class ChangePermission_Model {
         this.endpoint = endpoint;
     }
 
+    public ChangePermission_Model() {
+
+    }
+
     public String getUserId() {
         return userId;
     }

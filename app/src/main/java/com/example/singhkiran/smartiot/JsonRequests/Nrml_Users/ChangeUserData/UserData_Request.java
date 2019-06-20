@@ -26,6 +26,15 @@ public class UserData_Request {
 
     }
 
+    public UserData_Request(String userId, String token,Context context) {
+        this.context = context;
+        userData_model = new UserData_Model(userId,token);
+        retrofit2_config retrofit2 = new retrofit2_config();
+        smartiotAPI = retrofit2.retrofit.create(SmartiotAPI.class);
+        createRequest2();
+
+    }
+
 
     public void MakeRequest(Context context1) {
         retrofit2_config retrofit2 = new retrofit2_config();
@@ -37,6 +46,44 @@ public class UserData_Request {
     private void createRequest() {
 
         Call<UserData_Model> call = smartiotAPI.changeData_Post(userData_model);
+
+        call.enqueue(new Callback<UserData_Model>() {
+            @Override
+            public void onResponse(Call<UserData_Model> call, Response<UserData_Model> response) {
+                if (!response.isSuccessful()) {
+                    Toast.makeText(context, "Code :" + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                UserData_Model postResponse = response.body();
+                // response
+                Log.d("Response", postResponse.toString());
+                String Message = postResponse.getMessage();
+                try {
+                    if (postResponse.getStatus().equals(403)) {
+                        Toast.makeText(context, Message, Toast.LENGTH_SHORT).show();
+                    }
+                    if (postResponse.getStatus().equals(200)) {
+                        Toast.makeText(context, Message, Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (IOError e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<UserData_Model> call, Throwable t) {
+
+            }
+
+
+        });
+
+    }
+    private void createRequest2() {
+
+        Call<UserData_Model> call = smartiotAPI.changeFCM(userData_model);
 
         call.enqueue(new Callback<UserData_Model>() {
             @Override

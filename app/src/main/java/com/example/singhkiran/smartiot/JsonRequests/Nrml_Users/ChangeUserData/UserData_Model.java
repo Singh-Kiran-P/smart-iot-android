@@ -5,12 +5,27 @@ public class UserData_Model {
     private String message;
     private String name;
     private String email;
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public UserData_Model(String name, String email, String userId, String password) {
         this.name = name;
         this.email = email;
         this.userId = userId;
         this.password = password;
+    }
+    public UserData_Model(String userId, String token) {
+        this.token = token;
+
+        this.userId = userId;
+
     }
 
     public String getUserId() {

@@ -21,7 +21,7 @@
         android:background="#232228"
 
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nrml_nav_header_main"
+        app:headerLayout="@layout/admin_nav_header_main"
         app:itemIconTint="@drawable/selector_navbar_icon"
 
         app:itemTextColor="@drawable/selector_navbar"

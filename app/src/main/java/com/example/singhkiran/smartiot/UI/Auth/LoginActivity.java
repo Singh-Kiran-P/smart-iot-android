@@ -106,7 +106,9 @@ public class LoginActivity extends AppCompatActivity {
 
     public void forgetpass(View view) {
         try {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://smartiot.viewdns.net:8080/api/users/reset_password")));
+            API_Server api_server = new API_Server();
+
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(api_server.getServer_url()+"/api/users/reset_password")));
         } catch (Exception e) {
 
         }

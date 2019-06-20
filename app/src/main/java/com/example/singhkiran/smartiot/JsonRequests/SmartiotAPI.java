@@ -1,6 +1,7 @@
 package com.example.singhkiran.smartiot.JsonRequests;
 
 import com.example.singhkiran.smartiot.JsonRequests.Admin.AdminPanel.Devices.Device_Model;
+import com.example.singhkiran.smartiot.JsonRequests.Admin.AdminPanel.Feedback.Feedback_Model;
 import com.example.singhkiran.smartiot.JsonRequests.Admin.AdminPanel.PermissionRequest.Permission_Model;
 import com.example.singhkiran.smartiot.JsonRequests.Nrml_Users.ChangeUserData.UserData_Model;
 import com.example.singhkiran.smartiot.JsonRequests.Iot.Led.Led_Model;
@@ -14,6 +15,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -27,12 +29,23 @@ public interface SmartiotAPI {
 
     @POST("api/iot/led")
     Call<Led_Model> ledPost(@Body Led_Model Led);
+    @DELETE("api/iot/mainKill")
+    Call<Led_Model> mainKill();
 
     @GET("api/admin/showDevices")
     Call<List<Device_Model>> getDevices();
 
+    @GET("api/admin/showFeedback")
+    Call<List<Feedback_Model>> getFeedback1();
+
     @GET("api/admin/showPermissionRequests")
     Call<List<Permission_Model>> getRequests();
+
+    @POST("api/admin/givePermission")
+    Call<Permission_Model> givePerms(@Body Permission_Model permission_model);
+
+    @POST("api/users/data/changeFCM_token")
+    Call<UserData_Model> changeFCM(@Body UserData_Model UserData);
 
     @PUT("api/users/data/changeUserData")
     Call<UserData_Model> changeData_Post(@Body UserData_Model UserData);

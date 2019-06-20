@@ -5,6 +5,49 @@ public class Permission_Model {
     private String endPoint ;
     private String id;
     private String userId;
+    private String permsTblId;
+    private String permission;
+    private String message;
+    private String status;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Permission_Model(String endPoint, String permsTblId, String userId, String permission) {
+        this.endPoint = endPoint;
+        this.permsTblId = permsTblId;
+        this.userId = userId;
+        this.permission = permission;
+    }
+
+    public String getPermsTblId() {
+        return permsTblId;
+    }
+
+    public void setPermsTblId(String permsTblId) {
+        this.permsTblId = permsTblId;
+    }
+
+    public String getPermission() {
+        return permission;
+    }
+
+    public void setPermission(String permission) {
+        this.permission = permission;
+    }
 
     public String getName() {
         return name;

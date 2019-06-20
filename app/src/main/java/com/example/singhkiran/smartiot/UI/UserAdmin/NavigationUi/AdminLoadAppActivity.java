@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.singhkiran.smartiot.JsonRequests.Iot.Led.Kill_Request;
 import com.example.singhkiran.smartiot.JsonRequests.Login.Login_Model;
 import com.example.singhkiran.smartiot.R;
 import com.example.singhkiran.smartiot.UI.Auth.LoginActivity;
@@ -93,7 +94,7 @@ public class AdminLoadAppActivity extends AppCompatActivity implements Navigatio
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            new Kill_Request(this);
         }
 
         return super.onOptionsItemSelected(item);
@@ -115,10 +116,11 @@ public class AdminLoadAppActivity extends AppCompatActivity implements Navigatio
         } else if (id == R.id.nav_logs) {
             fragment = new Fragment_Logs();
 
-        }else if (id == R.id.nav_adminPanel) {
+        } else if (id == R.id.nav_adminPanel) {
             fragment = new Fragment_AdminPanel();
 
-        }else if (id == R.id.nav_logout) {
+        } else if (id == R.id.nav_logout) {
+            new Kill_Request(this);
             Intent login = new Intent(this, LoginActivity.class);
             startActivity(login);
         }
